@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agence WebBot — Sites Web & Chatbots WhatsApp pour Professionnels</title>
+<meta name="description" content="Agence WebBot, agence digitale à Casablanca : création de sites web professionnels et chatbots WhatsApp pour les professionnels marocains.">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://webbot-maroc.netlify.app/">
+<meta property="og:title" content="Agence WebBot — Sites Web & Chatbots WhatsApp pour Professionnels">
+<meta property="og:description" content="Agence WebBot, agence digitale à Casablanca : création de sites web professionnels et chatbots WhatsApp pour les professionnels marocains.">
+<meta property="og:image" content="https://webbot-maroc.netlify.app/og-image.png">
+<meta property="og:locale" content="fr_FR">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Agence WebBot — Sites Web & Chatbots WhatsApp pour Professionnels">
+<meta name="twitter:description" content="Agence WebBot, agence digitale à Casablanca : création de sites web professionnels et chatbots WhatsApp pour les professionnels marocains.">
+<meta name="twitter:image" content="https://webbot-maroc.netlify.app/og-image.png">
+<style>
+  :root{
+    --violet: #3b1d6e;
+    --violet-dark: #241245;
+    --violet-light: #6c3ed1;
+    --white: #ffffff;
+    --grey: #f5f3fb;
+    --text: #2c2438;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    color:var(--text);
+    background:var(--white);
+    line-height:1.6;
+  }
+  .container{max-width:1140px;margin:0 auto;padding:0 24px}
+  a{text-decoration:none;color:inherit}
+  ul{list-style:none}
+  img{max-width:100%;display:block}
+
+  /* NAVBAR */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:1000;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid #ece8f6;
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1140px;margin:0 auto}
+  .logo{font-size:1.4rem;font-weight:800;color:var(--violet)}
+  .logo span{color:var(--violet-light)}
+  .nav-links{display:flex;gap:32px;align-items:center}
+  .nav-links a{font-weight:600;font-size:.95rem;transition:color .2s}
+  .nav-links a:hover{color:var(--violet-light)}
+  .nav-cta{
+    background:var(--violet);color:var(--white)!important;
+    padding:10px 22px;border-radius:30px;font-weight:700;font-size:.9rem;
+    transition:background .2s, transform .2s;
+  }
+  .nav-cta:hover{background:var(--violet-light);transform:translateY(-2px)}
+  .burger{display:none;font-size:1.6rem;cursor:pointer;color:var(--violet)}
+
+  /* HERO */
+  #hero{
+    background:linear-gradient(135deg,var(--violet-dark),var(--violet) 60%,var(--violet-light));
+    color:var(--white);
+    padding:170px 0 110px;
+    position:relative;
+    overflow:hidden;
+  }
+  #hero::before{
+    content:'';position:absolute;top:-150px;right:-150px;width:450px;height:450px;
+    background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);
+    border-radius:50%;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;position:relative;z-index:1}
+  .hero-tag{
+    display:inline-block;background:rgba(255,255,255,.15);padding:8px 18px;border-radius:30px;
+    font-size:.85rem;font-weight:600;margin-bottom:22px;letter-spacing:.5px;
+  }
+  .hero-grid h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;line-height:1.2;margin-bottom:20px}
+  .hero-grid h1 span{color:#d9c8ff}
+  .hero-grid p{font-size:1.1rem;color:#e7defa;max-width:520px;margin-bottom:34px}
+  .hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:15px 30px;border-radius:30px;font-weight:700;font-size:.95rem;
+    transition:transform .2s, box-shadow .2s, background .2s;
+    border:2px solid transparent;
+  }
+  .btn-primary{background:var(--white);color:var(--violet)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.18)}
+  .btn-outline{border-color:rgba(255,255,255,.6);color:var(--white)}
+  .btn-outline:hover{background:rgba(255,255,255,.12);transform:translateY(-3px)}
+  .btn-whatsapp{background:#25D366;color:var(--white)}
+  .btn-whatsapp:hover{background:#1ebd5a;transform:translateY(-3px);box-shadow:0 12px 28px rgba(37,211,102,.35)}
+
+  .hero-card{
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);
+    border-radius:24px;padding:34px;backdrop-filter:blur(6px);
+  }
+  .hero-card h3{font-size:1.1rem;margin-bottom:18px;color:#e7defa}
+  .hero-stat{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.15)}
+  .hero-stat:last-child{border-bottom:none}
+  .hero-stat strong{font-size:1.3rem;display:block}
+  .hero-stat span{font-size:.85rem;color:#cbb9f2}
+
+  /* SECTION HEADERS */
+  .shead{text-align:center;max-width:640px;margin:0 auto 56px}
+  .tag{
+    display:inline-block;color:var(--violet-light);font-weight:700;font-size:.85rem;
+    letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;
+  }
+  .shead h2{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;color:var(--violet-dark)}
+  .shead p{margin-top:14px;color:#6b6178;font-size:1.05rem}
+
+  /* SERVICES */
+  #services{padding:110px 0;background:var(--grey)}
+  .svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+  .svc-card{
+    background:var(--white);border-radius:20px;padding:38px;
+    box-shadow:0 6px 24px rgba(59,29,110,.07);
+    transition:transform .25s, box-shadow .25s;
+    border:1px solid #ece8f6;
+  }
+  .svc-card:hover{transform:translateY(-6px);box-shadow:0 16px 38px rgba(59,29,110,.15)}
+  .svc-icon{
+    width:64px;height:64px;border-radius:16px;
+    background:linear-gradient(135deg,var(--violet),var(--violet-light));
+    display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin-bottom:22px;
+  }
+  .svc-card h3{font-size:1.3rem;font-weight:800;color:var(--violet-dark);margin-bottom:12px}
+  .svc-card p{color:#6b6178;margin-bottom:18px}
+  .svc-list{display:flex;flex-direction:column;gap:8px}
+  .svc-list li{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;color:#473e54}
+  .svc-list li::before{content:'✓';color:var(--violet-light);font-weight:800}
+
+  /* TARGET STRIP */
+  #target{padding:70px 0;background:var(--violet-dark);color:var(--white);text-align:center}
+  #target h2{font-size:1.5rem;font-weight:700;margin-bottom:10px}
+  #target p{color:#cbb9f2;max-width:640px;margin:0 auto;font-size:1.05rem}
+  #target .badge{
+    display:inline-block;margin-top:22px;background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.2);border-radius:30px;padding:10px 24px;font-weight:700;font-size:.9rem;
+  }
+
+  /* PRICING */
+  #pricing{padding:110px 0}
+  .price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;max-width:1140px;margin:0 auto}
+  .price-card{
+    border-radius:24px;padding:44px 36px;border:2px solid #ece8f6;
+    transition:transform .25s, box-shadow .25s, border-color .25s;
+    position:relative;overflow:hidden;
+  }
+  .price-card:hover{transform:translateY(-8px);box-shadow:0 20px 44px rgba(59,29,110,.16);border-color:var(--violet-light)}
+  .price-card.featured{
+    background:linear-gradient(160deg,var(--violet-dark),var(--violet));
+    color:var(--white);border-color:transparent;
+  }
+  .price-card.featured .price-tag, .price-card.featured h3, .price-card.featured .price-list li{color:var(--white)}
+  .price-card.featured .price-list li::before{color:#d9c8ff}
+  .price-card.featured p{color:#dccdf7}
+  .ribbon{
+    position:absolute;top:18px;right:-38px;background:#25D366;color:var(--white);
+    font-size:.75rem;font-weight:800;padding:6px 44px;transform:rotate(35deg);letter-spacing:.5px;
+  }
+  .price-card h3{font-size:1.3rem;font-weight:800;color:var(--violet-dark);margin-bottom:6px}
+  .price-card .price-tag{font-size:clamp(1.6rem,4vw,2.6rem);font-weight:800;color:var(--violet);margin:14px 0 4px}
+  .price-card .price-tag sup{font-size:1rem;font-weight:600}
+  .price-card .price-period{font-size:.9rem;color:#8c81a0;margin-bottom:24px;display:block}
+  .price-card.featured .price-period{color:#cbb9f2}
+  .price-card p{color:#6b6178;margin-bottom:20px}
+  .price-list{display:flex;flex-direction:column;gap:12px;margin-bottom:30px}
+  .price-list li{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;color:#473e54}
+  .price-list li::before{content:'✓';color:var(--violet-light);font-weight:800}
+  .price-note{text-align:center;max-width:640px;margin:40px auto 0;color:#6b6178;font-size:.98rem}
+  .price-card .btn{width:100%;justify-content:center;padding:15px 12px;white-space:nowrap}
+  .price-card .btn-primary{background:var(--violet);color:var(--white)}
+  .price-card .btn-primary:hover{background:var(--violet-light)}
+  .price-card.featured .btn-primary{background:var(--white);color:var(--violet)}
+
+  /* CONTACT / CTA */
+  #contact{
+    padding:100px 0;text-align:center;
+    background:linear-gradient(135deg,var(--violet),var(--violet-dark));
+    color:var(--white);
+  }
+  #contact h2{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;margin-bottom:16px}
+  #contact p{color:#dccdf7;max-width:560px;margin:0 auto 36px;font-size:1.08rem}
+
+  /* FOOTER */
+  footer{background:var(--violet-dark);color:#cbb9f2;padding:36px 0;text-align:center;font-size:.9rem}
+  footer strong{color:var(--white)}
+  footer .footer-links{margin-top:14px;display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+  footer .footer-links a{color:#cbb9f2;font-weight:600;transition:color .2s}
+  footer .footer-links a:hover{color:var(--white)}
+
+  /* WHATSAPP FLOAT */
+
+  @media(max-width:880px){
+    .hero-grid{grid-template-columns:1fr}
+    .svc-grid, .price-grid{grid-template-columns:1fr}
+  }
+  /* PROSPECTION CHATBOT */
+  .bot-toggle{
+    position:fixed;bottom:26px;right:26px;z-index:999;
+    background:var(--violet);color:var(--white);
+    width:104px;height:104px;border-radius:50%;border:none;cursor:pointer;
+    clip-path:circle(50%);
+    display:flex;align-items:center;justify-content:center;font-size:45px;
+    box-shadow:0 10px 28px rgba(59,29,110,.45);
+    transition:transform .2s, background .2s;
+    animation:botPulse 2s infinite;
+  }
+  .bot-toggle:hover{background:var(--violet-light);transform:translateY(-3px)}
+  @keyframes botPulse{
+    0%{box-shadow:0 10px 28px rgba(59,29,110,.45),0 0 0 0 rgba(59,29,110,.6)}
+    70%{box-shadow:0 10px 28px rgba(59,29,110,.45),0 0 0 26px rgba(59,29,110,0)}
+    100%{box-shadow:0 10px 28px rgba(59,29,110,.45),0 0 0 0 rgba(59,29,110,0)}
+  }
+  .bot-label{
+    position:fixed;bottom:124px;right:14px;z-index:999;
+    background:var(--white);color:var(--violet);
+    padding:8px 16px;border-radius:20px;font-weight:700;font-size:.85rem;
+    white-space:nowrap;box-shadow:0 8px 22px rgba(59,29,110,.22);
+    border:1px solid #ece8f6;
+    transition:opacity .25s, transform .25s;
+  }
+  .bot-label::after{
+    content:'';position:absolute;bottom:-6px;right:28px;
+    width:12px;height:12px;background:var(--white);
+    border-right:1px solid #ece8f6;border-bottom:1px solid #ece8f6;
+    transform:rotate(45deg);
+  }
+  .bot-label.hidden{opacity:0;transform:translateY(8px);pointer-events:none}
+  .bot-window{
+    position:fixed;bottom:128px;right:26px;z-index:999;
+    width:420px;max-width:calc(100vw - 40px);max-height:550px;
+    background:var(--white);border-radius:18px;overflow:hidden;
+    box-shadow:0 24px 60px rgba(36,18,69,.28);
+    display:flex;flex-direction:column;
+    opacity:0;transform:translateY(16px) scale(.97);pointer-events:none;
+    transition:opacity .25s, transform .25s;
+  }
+  .bot-window.open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+  .bot-head{
+    background:linear-gradient(135deg,var(--violet-dark),var(--violet));
+    color:var(--white);padding:16px 18px;display:flex;align-items:center;gap:12px;
+  }
+  .bot-head .bot-avatar{
+    width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.18);
+    display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;
+  }
+  .bot-head strong{display:block;font-size:.95rem}
+  .bot-head span{display:block;font-size:.78rem;color:#cbb9f2}
+  .bot-head .bot-restart{
+    margin-left:auto;background:rgba(255,255,255,.15);border:none;color:var(--white);
+    font-size:.78rem;font-weight:600;padding:6px 12px;border-radius:20px;cursor:pointer;
+    transition:background .2s;flex-shrink:0;
+  }
+  .bot-head .bot-restart:hover{background:rgba(255,255,255,.28)}
+  .bot-body{
+    flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;
+    background:var(--grey);
+  }
+  .bot-msg{
+    max-width:84%;padding:11px 14px;border-radius:14px;font-size:15px;line-height:1.5;
+    white-space:pre-line;
+  }
+  .bot-msg.bot{
+    align-self:flex-start;background:#e7e4ee;color:var(--text);
+    border:1px solid #ddd8e8;border-bottom-left-radius:4px;
+  }
+  .bot-msg.user{
+    align-self:flex-end;background:var(--violet);color:var(--white);
+    border-bottom-right-radius:4px;
+  }
+  .bot-options{display:flex;flex-direction:column;gap:8px;align-self:flex-start;max-width:90%}
+  .bot-option-btn{
+    background:var(--white);border:1.5px solid var(--violet);color:var(--violet);
+    padding:9px 14px;border-radius:12px;font-size:.85rem;font-weight:700;cursor:pointer;
+    text-align:left;transition:background .2s, color .2s;
+  }
+  .bot-option-btn:hover{background:var(--violet);color:var(--white)}
+  .bot-input-row{
+    display:flex;gap:8px;padding:12px;border-top:1px solid #ece8f6;background:var(--white);
+  }
+  .bot-input-row input{
+    flex:1;border:1.5px solid #ece8f6;border-radius:30px;padding:10px 16px;
+    font-size:.88rem;outline:none;font-family:inherit;
+  }
+  .bot-input-row input:focus{border-color:var(--violet-light)}
+  .bot-input-row button{
+    background:var(--violet);color:var(--white);border:none;border-radius:50%;
+    width:42px;height:42px;flex-shrink:0;cursor:pointer;font-size:1.05rem;
+    display:flex;align-items:center;justify-content:center;transition:background .2s;
+  }
+  .bot-input-row button:hover{background:var(--violet-light)}
+  .bot-link-btn{
+    align-self:flex-start;background:#25D366;color:var(--white);
+    padding:10px 16px;border-radius:12px;font-size:.85rem;font-weight:700;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+
+  @media(max-width:680px){
+    .nav-links{
+      position:fixed;top:64px;left:0;right:0;background:var(--white);
+      flex-direction:column;align-items:flex-start;padding:24px;gap:18px;
+      border-bottom:1px solid #ece8f6;transform:translateY(-130%);transition:transform .3s;
+    }
+    .nav-links.open{transform:translateY(0)}
+    .burger{display:block}
+    #hero{padding-top:130px}
+    footer{padding-bottom:150px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#hero" class="logo">Agence Web<span>Bot</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero">Accueil</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Nos offres</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a class="nav-cta" href="https://api.whatsapp.com/send?phone=33667486933&amp;text=Bonjour%20Agence%20WebBot%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20services." target="_blank" rel="noopener">WhatsApp</a></li>
+    </ul>
+    <span class="burger" id="burger">☰</span>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="hero-tag">— Agence digitale à Casablanca</span>
+      <h1>Donnez à votre activité une <span>présence digitale professionnelle</span></h1>
+      <p>Agence WebBot accompagne les professionnels marocains de Casablanca avec des sites web sur-mesure et des chatbots WhatsApp qui répondent à vos clients 24h/24.</p>
+      <div class="hero-btns">
+        <a class="btn btn-whatsapp" href="https://api.whatsapp.com/send?phone=33667486933&amp;text=Bonjour%20Agence%20WebBot%2C%20je%20souhaite%20discuter%20de%20mon%20projet." target="_blank" rel="noopener">💬 Discuter sur WhatsApp</a>
+        <a class="btn btn-outline" href="#pricing">Voir nos offres</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Pourquoi Agence WebBot ?</h3>
+      <div class="hero-stat"><span>Site web professionnel</span><strong>Devis personnalisé</strong></div>
+      <div class="hero-stat"><span>Chatbot WhatsApp</span><strong>Devis personnalisé</strong></div>
+      <div class="hero-stat"><span>Mise en ligne</span><strong>Rapide & sans complication</strong></div>
+      <div class="hero-stat"><span>Cible</span><strong>Professionnels marocains</strong></div>
+      <div class="hero-stat"><span>Contact</span><strong><a href="https://api.whatsapp.com/send?phone=33667486933&amp;text=Bonjour%20Agence%20WebBot%2C%20je%20souhaite%20en%20savoir%20plus." target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">+33 6 67 48 69 33</a></strong></div>
+      <div class="hero-stat"><span>Email</span><strong><a href="mailto:contact@agencewebbot.com" style="color:inherit;text-decoration:underline">contact@agencewebbot.com</a></strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="shead">
+      <span class="tag">— Nos services</span>
+      <h2>Tout ce qu'il faut pour <br>développer votre activité en ligne</h2>
+      <p>Deux solutions complémentaires, pensées pour les professionnels marocains qui veulent gagner du temps et inspirer confiance.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-icon">🌐</div>
+        <h3>Création de site web professionnel</h3>
+        <p>Un site moderne et sur-mesure qui présente votre activité, vos domaines d'expertise et facilite la prise de contact.</p>
+        <ul class="svc-list">
+          <li>Design professionnel adapté à votre image</li>
+          <li>Site responsive (mobile, tablette, ordinateur)</li>
+          <li>Présentation de vos services & coordonnées</li>
+          <li>Optimisé pour être trouvé sur Google</li>
+          <li>Mise en ligne rapide, clé en main</li>
+        </ul>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg width="57" height="68" viewBox="0 0 160 190" xmlns="http://www.w3.org/2000/svg">
+          <line x1="80" y1="10" x2="80" y2="34" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="80" cy="8" r="8" fill="#a78bfa"/>
+          <rect x="22" y="34" width="116" height="100" rx="32" fill="#ffffff"/>
+          <rect x="22" y="34" width="116" height="100" rx="32" fill="url(#headGradSvc)" opacity="0.18"/>
+          <circle cx="62" cy="84" r="13" fill="#2d1b69"/>
+          <circle cx="98" cy="84" r="13" fill="#2d1b69"/>
+          <circle cx="66" cy="80" r="4" fill="#ffffff" opacity=".8"/>
+          <circle cx="102" cy="80" r="4" fill="#ffffff" opacity=".8"/>
+          <path d="M 64 110 Q 80 122 96 110" stroke="#2d1b69" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <rect x="8" y="68" width="14" height="34" rx="7" fill="#a78bfa"/>
+          <rect x="138" y="68" width="14" height="34" rx="7" fill="#a78bfa"/>
+          <rect x="42" y="140" width="76" height="46" rx="20" fill="#ffffff" opacity=".92"/>
+          <circle cx="80" cy="163" r="11" fill="#25d366"/>
+          <defs><linearGradient id="headGradSvc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4c1d95"/><stop offset="1" stop-color="#a78bfa"/></linearGradient></defs>
+        </svg></div>
+        <h3>Chatbot WhatsApp intelligent</h3>
+        <p>Un assistant WhatsApp qui accueille vos prospects, répond aux questions fréquentes et qualifie vos demandes en continu.</p>
+        <ul class="svc-list">
+          <li>Réponses automatiques 24h/24, 7j/7</li>
+          <li>Accueil et orientation de vos clients</li>
+          <li>Prise de rendez-vous et collecte d'informations</li>
+          <li>Ton professionnel adapté à votre activité</li>
+          <li>Suivi et ajustements mensuels inclus</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TARGET -->
+<section id="target">
+  <div class="container">
+    <h2>Conçu pour les professionnels marocains de Casablanca</h2>
+    <p>Nous comprenons les exigences de votre métier : sérieux, confidentialité et image professionnelle. Nos solutions sont pensées pour valoriser votre expertise et simplifier le contact avec vos clients.</p>
+    <span class="badge">📍 Casablanca, Maroc</span>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="shead">
+      <span class="tag">— Nos offres</span>
+      <h2>Une offre adaptée à votre activité</h2>
+      <p>Écrivez-nous sur WhatsApp — par texte ou message vocal — et notre assistant identifie votre secteur d'activité pour vous envoyer un devis personnalisé en quelques minutes.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card">
+        <h3>Site Web Professionnel</h3>
+        <p>Votre vitrine digitale, livrée clé en main.</p>
+        <ul class="price-list">
+          <li>Site web responsive sur-mesure</li>
+          <li>Présentation de votre activité & services</li>
+          <li>Formulaire / coordonnées de contact</li>
+          <li>Mise en ligne incluse</li>
+          <li>Domaine & hébergement inclus</li>
+          <li>Accompagnement au lancement</li>
+        </ul>
+        <a class="btn btn-primary" href="https://api.whatsapp.com/send?phone=33667486933&amp;text=Bonjour%2C%20je%20souhaite%20un%20devis" target="_blank" rel="noopener">📩 Demander un devis</a>
+      </div>
+      <div class="price-card">
+        <h3>Chatbot Essentiel</h3>
+        <p>Réponses automatiques de base pour ne plus jamais laisser un client sans réponse.</p>
+        <ul class="price-list">
+          <li>Réponses automatiques aux questions fréquentes</li>
+          <li>Disponible 24h/24 et 7j/7</li>
+          <li>Configuration et mise en place incluses</li>
+          <li>Sans engagement à long terme</li>
+        </ul>
+        <a class="btn btn-primary" href="https://api.whatsapp.com/send?phone=33667486933&amp;text=Bonjour%2C%20je%20souhaite%20un%20devis" target="_blank" rel="noopener">📩 Demander un devis</a>
+      </div>
+      <div class="price-card featured">
+        <span class="ribbon">Populaire</span>
+        <h3>Chatbot Standard</h3>
+        <p>Réponses automatiques et prise de rendez-vous, sans effort de votre côté.</p>
+        <ul class="price-list">
+          <li>Tout le forfait Essentiel</li>
+          <li>Prise de rendez-vous automatisée</li>
+          <li>Collecte des informations client</li>
+          <li>Mises à jour mensuelles incluses</li>
+        </ul>
+        <a class="btn btn-primary" href="https://api.whatsapp.com/send?phone=33667486933&amp;text=Bonjour%2C%20je%20souhaite%20un%20devis" target="_blank" rel="noopener">📩 Demander un devis</a>
+      </div>
+      <div class="price-card">
+        <h3>Chatbot Premium</h3>
+        <p>Réponses, prise de rendez-vous et suivi personnalisé pour une relation client haut de gamme.</p>
+        <ul class="price-list">
+          <li>Tout le forfait Standard</li>
+          <li>Suivi personnalisé et ajustements réguliers</li>
+          <li>Récapitulatif mensuel des prospects générés</li>
+          <li>Support prioritaire</li>
+        </ul>
+        <a class="btn btn-primary" href="https://api.whatsapp.com/send?phone=33667486933&amp;text=Bonjour%2C%20je%20souhaite%20un%20devis" target="_blank" rel="noopener">📩 Demander un devis</a>
+      </div>
+    </div>
+    <p class="price-note">💬 Vous pouvez écrire ou envoyer un message vocal — notre assistant WhatsApp vous répond automatiquement et prépare votre devis selon votre secteur.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2>Prêt à digitaliser votre activité ?</h2>
+    <p>Contactez-nous directement sur WhatsApp pour discuter de votre projet et recevoir une proposition adaptée à votre activité.</p>
+    <a class="btn btn-whatsapp" href="https://api.whatsapp.com/send?phone=33667486933&amp;text=Bonjour%20Agence%20WebBot%2C%20je%20souhaite%20discuter%20de%20mon%20projet." target="_blank" rel="noopener">💬 Contacter Agence WebBot sur WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p><strong>Agence WebBot</strong> — Agence digitale à Casablanca</p>
+    <p>Sites web professionnels & chatbots WhatsApp pour les professionnels marocains</p>
+    <p style="margin-top:10px">© 2026 Agence WebBot. Tous droits réservés.</p>
+    <div class="footer-links">
+      <a href="#hero">⬆️ Retour en haut</a>
+      <a href="https://api.whatsapp.com/send?phone=33667486933&amp;text=Bonjour%20Agence%20WebBot%2C%20je%20souhaite%20en%20savoir%20plus." target="_blank" rel="noopener">💬 WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<!-- CHATBOT DE PROSPECTION -->
+<div class="bot-label" id="botLabel">Discutez avec nous !</div>
+<button class="bot-toggle" id="botToggle" aria-label="Ouvrir l'assistant Agence WebBot"><svg width="90" height="90" viewBox="0 0 160 190" xmlns="http://www.w3.org/2000/svg">
+  <line x1="80" y1="10" x2="80" y2="34" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="80" cy="8" r="8" fill="#a78bfa"/>
+  <rect x="22" y="34" width="116" height="100" rx="32" fill="#ffffff"/>
+  <rect x="22" y="34" width="116" height="100" rx="32" fill="url(#headGradFab)" opacity="0.18"/>
+  <circle cx="62" cy="84" r="13" fill="#2d1b69"/>
+  <circle cx="98" cy="84" r="13" fill="#2d1b69"/>
+  <circle cx="66" cy="80" r="4" fill="#ffffff" opacity=".8"/>
+  <circle cx="102" cy="80" r="4" fill="#ffffff" opacity=".8"/>
+  <path d="M 64 110 Q 80 122 96 110" stroke="#2d1b69" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <rect x="8" y="68" width="14" height="34" rx="7" fill="#a78bfa"/>
+  <rect x="138" y="68" width="14" height="34" rx="7" fill="#a78bfa"/>
+  <rect x="42" y="140" width="76" height="46" rx="20" fill="#ffffff" opacity=".92"/>
+  <circle cx="80" cy="163" r="11" fill="#25d366"/>
+  <defs><linearGradient id="headGradFab" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4c1d95"/><stop offset="1" stop-color="#a78bfa"/></linearGradient></defs>
+</svg></button>
+<div class="bot-window" id="botWindow">
+  <div class="bot-head">
+    <div class="bot-avatar"><svg width="34" height="40" viewBox="0 0 160 190" xmlns="http://www.w3.org/2000/svg">
+      <line x1="80" y1="10" x2="80" y2="34" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="80" cy="8" r="8" fill="#a78bfa"/>
+      <rect x="22" y="34" width="116" height="100" rx="32" fill="#ffffff"/>
+      <rect x="22" y="34" width="116" height="100" rx="32" fill="url(#headGradAv)" opacity="0.18"/>
+      <circle cx="62" cy="84" r="13" fill="#2d1b69"/>
+      <circle cx="98" cy="84" r="13" fill="#2d1b69"/>
+      <circle cx="66" cy="80" r="4" fill="#ffffff" opacity=".8"/>
+      <circle cx="102" cy="80" r="4" fill="#ffffff" opacity=".8"/>
+      <path d="M 64 110 Q 80 122 96 110" stroke="#2d1b69" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <rect x="8" y="68" width="14" height="34" rx="7" fill="#a78bfa"/>
+      <rect x="138" y="68" width="14" height="34" rx="7" fill="#a78bfa"/>
+      <rect x="42" y="140" width="76" height="46" rx="20" fill="#ffffff" opacity=".92"/>
+      <circle cx="80" cy="163" r="11" fill="#25d366"/>
+      <defs><linearGradient id="headGradAv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4c1d95"/><stop offset="1" stop-color="#a78bfa"/></linearGradient></defs>
+    </svg></div>
+    <div>
+      <strong>Assistant Agence WebBot</strong>
+      <span>En ligne · répond instantanément</span>
+    </div>
+    <button class="bot-restart" id="botRestart" aria-label="Recommencer la conversation">🔄 Recommencer</button>
+  </div>
+  <div class="bot-body" id="botBody"></div>
+  <div class="bot-input-row" id="botInputRow" style="display:none">
+    <input type="text" id="botInput" placeholder="Votre réponse...">
+    <button id="botSend" aria-label="Envoyer">➤</button>
+  </div>
+</div>
+
+<script>
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  /* ===== Chatbot de prospection — arbre de dialogues riche ===== */
+  (function(){
+    const toggle = document.getElementById('botToggle');
+    const win = document.getElementById('botWindow');
+    const label = document.getElementById('botLabel');
+    const body = document.getElementById('botBody');
+    const inputRow = document.getElementById('botInputRow');
+    const input = document.getElementById('botInput');
+    const sendBtn = document.getElementById('botSend');
+    const restartBtn = document.getElementById('botRestart');
+
+    const WA_NUMBER = '33667486933';
+    let started = false;
+    let awaiting = null; // null | 'sector' | 'name' | 'lastname' | 'phone'
+    let lead = { service: '', sector: '', name: '', lastname: '', phone: '' };
+
+    /* ---- Arbre de dialogues : chaque nœud = message(s) + boutons (vers un autre nœud ou 'quote') ---- */
+    const NODES = {
+      menu: {
+        messages: ["Bonjour ! Dites-nous votre métier et on vous prépare une offre personnalisée."],
+        options: [
+          { label: '🤖 C\'est quoi un chatbot WhatsApp ?', to: 'chatbot1' },
+          { label: '🌐 Site vitrine professionnel', to: 'site1' },
+          { label: '💰 Tarifs et paiement', to: 'tarifs1' },
+          { label: '⚖️ Solutions pour avocats', to: 'avocats1' },
+          { label: '📋 Solutions pour notaires', to: 'notaires1' }
+        ]
+      },
+
+      // Parcours 1 — Chatbot WhatsApp
+      chatbot1: {
+        messages: ["Un chatbot WhatsApp répond à vos clients 24h/24, 7j/7 — même quand vous êtes occupé. À 23h un client écrit \"Bonjour, j'ai besoin d'un rendez-vous urgent\", votre chatbot répond immédiatement et collecte ses infos."],
+        options: [
+          { label: '✅ Et ça marche vraiment ?', to: 'chatbot2' },
+          { label: '💬 Que peut-il dire exactement ?', to: 'chatbot3' },
+          { label: '⬅️ Retour au menu', to: 'menu' }
+        ]
+      },
+      chatbot2: {
+        messages: ["Absolument. Nos chatbots répondent aux questions fréquentes, prennent des RDV, envoient vos coordonnées, expliquent vos honoraires, redirigent les urgences vers vous."],
+        options: [
+          { label: '💬 Que peut-il dire exactement ?', to: 'chatbot3' },
+          { label: '💰 Voir les tarifs', to: 'tarifs1' },
+          { label: '⬅️ Retour au menu', to: 'menu' }
+        ]
+      },
+      chatbot3: {
+        messages: ["Vous décidez vous-même ! Nous le configurons selon votre activité : services, horaires, tarifs, documents à fournir. Il parle français ET arabe."],
+        options: [
+          { label: '💰 Voir les tarifs', to: 'tarifs1' },
+          { label: '📞 Parler à un conseiller', to: 'quote' },
+          { label: '⬅️ Retour au menu', to: 'menu' }
+        ]
+      },
+
+      // Parcours 2 — Site vitrine
+      site1: {
+        messages: ["Votre site vitrine est votre carte de visite digitale sur Google. Créé en 48h, clé en main : présentation cabinet, domaines de compétence, formulaire contact, bouton WhatsApp, design professionnel."],
+        options: [
+          { label: '🎨 À quoi ça ressemble ?', to: 'site2' },
+          { label: '⏱️ Délai et process', to: 'site3' },
+          { label: '💰 Voir les tarifs', to: 'tarifs1' },
+          { label: '⬅️ Retour au menu', to: 'menu' }
+        ]
+      },
+      site2: {
+        messages: ["Regardez ce site — vous êtes dessus en ce moment ! C'est exactement le niveau que nous livrons à chaque client. Design élégant, responsive mobile, couleurs adaptées à votre image."],
+        options: [
+          { label: '⏱️ Délai et process', to: 'site3' },
+          { label: '💰 Voir les tarifs', to: 'tarifs1' },
+          { label: '⬅️ Retour au menu', to: 'menu' }
+        ]
+      },
+      site3: {
+        messages: ["3 étapes :\n1️⃣ Vous envoyez vos infos par WhatsApp.\n2️⃣ Nous créons votre site en 48h.\n3️⃣ Vous validez et il est en ligne.\nTout à distance, sans déplacement."],
+        options: [
+          { label: '💰 Voir les tarifs', to: 'tarifs1' },
+          { label: '📞 Démarrer maintenant', to: 'quote' },
+          { label: '⬅️ Retour au menu', to: 'menu' }
+        ]
+      },
+
+      // Parcours 3 — Tarifs
+      tarifs1: {
+        messages: ["Nos offres sont personnalisées selon votre secteur d'activité (avocat, notaire, comptable, commerce...) :\n🌐 Site vitrine : paiement unique, clé en main\n🤖 Chatbot WhatsApp : abonnement mensuel, résiliable à tout moment, en 3 formules (Essentiel, Standard, Premium)\n\nLe plus simple : demandez votre devis sur WhatsApp, notre assistant vous répond en quelques minutes avec une offre adaptée à votre activité."],
+        options: [
+          { label: '❓ Qu\'est-ce qui est inclus ?', to: 'tarifs2' },
+          { label: '💳 Comment payer ?', to: 'tarifs3' },
+          { label: '📞 Obtenir un devis', to: 'quote' },
+          { label: '⬅️ Retour au menu', to: 'menu' }
+        ]
+      },
+      tarifs2: {
+        messages: ["Le site inclut : création complète, mise en ligne, nom de domaine 1ère année, hébergement 1 an, bouton WhatsApp, responsive mobile.\nLe chatbot (Essentiel : réponses automatiques de base, Standard : réponses + prise de rendez-vous, Premium : réponses + RDV + suivi personnalisé) inclut : configuration complète, mises à jour, support technique, messages illimités."],
+        options: [
+          { label: '💳 Comment payer ?', to: 'tarifs3' },
+          { label: '📞 Obtenir un devis', to: 'quote' },
+          { label: '⬅️ Retour au menu', to: 'menu' }
+        ]
+      },
+      tarifs3: {
+        messages: ["Paiement par virement bancaire ou WhatsApp Pay. Aucun engagement pour le chatbot — vous arrêtez quand vous voulez."],
+        options: [
+          { label: '📞 Démarrer maintenant', to: 'quote' },
+          { label: '⬅️ Retour au menu', to: 'menu' }
+        ]
+      },
+
+      // Parcours 4 — Solutions avocats
+      avocats1: {
+        messages: ["Pour les avocats, nos outils font :\n📅 Prise de RDV automatique 24h/24\n📋 Collecte infos client avant consultation\n⚡ Réponse immédiate aux urgences\n🌍 Disponible en français et arabe"],
+        options: [
+          { label: '📅 Comment fonctionne la prise de RDV ?', to: 'avocats2' },
+          { label: '🌍 Il parle darija aussi ?', to: 'avocats3' },
+          { label: '💰 Voir les tarifs', to: 'tarifs1' },
+          { label: '⬅️ Retour au menu', to: 'menu' }
+        ]
+      },
+      avocats2: {
+        messages: ["Le client WhatsApp votre cabinet ou étude. Le chatbot demande : son nom, l'objet de la consultation, ses disponibilités. Vous recevez un résumé et confirmez. Simple et efficace."],
+        options: [
+          { label: '🌍 Il parle darija aussi ?', to: 'avocats3' },
+          { label: '📞 Je suis intéressé', to: 'quote' },
+          { label: '⬅️ Retour au menu', to: 'menu' }
+        ]
+      },
+      avocats3: {
+        messages: ["Oui ! Nous configurons en français, arabe classique et darija selon vos préférences. Vos clients se sentiront à l'aise dès le premier message."],
+        options: [
+          { label: '💰 Voir les tarifs', to: 'tarifs1' },
+          { label: '📞 Je suis intéressé', to: 'quote' },
+          { label: '⬅️ Retour au menu', to: 'menu' }
+        ]
+      },
+
+      // Parcours 5 — Solutions notaires
+      notaires1: {
+        messages: ["Pour les notaires, nous automatisons :\n📄 Liste des documents selon l'acte\n📅 Prise de RDV pour signature\n⏳ Suivi avancement du dossier\n❓ Réponses sur délais et honoraires"],
+        options: [
+          { label: '📄 Exemple sur les documents ?', to: 'notaires2' },
+          { label: '⏳ Suivi de dossier ?', to: 'notaires3' },
+          { label: '💰 Voir les tarifs', to: 'tarifs1' },
+          { label: '⬅️ Retour au menu', to: 'menu' }
+        ]
+      },
+      notaires2: {
+        messages: ["Client : \"Quels documents pour un acte de vente ?\"\nChatbot : \"Pour une vente immobilière : CIN des deux parties, titre foncier, certificat de propriété, quittances de taxes... Souhaitez-vous prendre RDV ?\"\nTout automatique."],
+        options: [
+          { label: '💰 Voir les tarifs', to: 'tarifs1' },
+          { label: '📞 Je suis intéressé', to: 'quote' },
+          { label: '⬅️ Retour au menu', to: 'menu' }
+        ]
+      },
+      notaires3: {
+        messages: ["Votre client envoie son numéro de dossier par WhatsApp. Le chatbot répond avec l'état d'avancement que vous avez renseigné. Vos clients sont informés sans vous déranger."],
+        options: [
+          { label: '💰 Voir les tarifs', to: 'tarifs1' },
+          { label: '📞 Je suis intéressé', to: 'quote' },
+          { label: '⬅️ Retour au menu', to: 'menu' }
+        ]
+      }
+    };
+
+    function scrollToBottom(){
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function addMessage(text, who){
+      const el = document.createElement('div');
+      el.className = 'bot-msg ' + who;
+      el.textContent = text;
+      body.appendChild(el);
+      scrollToBottom();
+      return el;
+    }
+
+    function addLink(label, url){
+      const a = document.createElement('a');
+      a.className = 'bot-link-btn';
+      a.href = url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = label;
+      body.appendChild(a);
+      scrollToBottom();
+    }
+
+    function addOptions(options){
+      const wrap = document.createElement('div');
+      wrap.className = 'bot-options';
+      options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'bot-option-btn';
+        btn.textContent = opt.label;
+        btn.addEventListener('click', () => {
+          wrap.remove();
+          addMessage(opt.label, 'user');
+          if (opt.to === 'quote') {
+            startQuote();
+          } else {
+            goTo(opt.to);
+          }
+        });
+        wrap.appendChild(btn);
+      });
+      body.appendChild(wrap);
+      scrollToBottom();
+    }
+
+    /* ---- Boutons de choix génériques (parcours devis) : chaque opt = {label, value}, handler(opt) ---- */
+    function addChoiceButtons(options, handler){
+      const wrap = document.createElement('div');
+      wrap.className = 'bot-options';
+      options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'bot-option-btn';
+        btn.textContent = opt.label;
+        btn.addEventListener('click', () => {
+          wrap.remove();
+          addMessage(opt.label, 'user');
+          handler(opt);
+        });
+        wrap.appendChild(btn);
+      });
+      body.appendChild(wrap);
+      scrollToBottom();
+    }
+
+    function showInput(placeholder){
+      inputRow.style.display = 'flex';
+      input.placeholder = placeholder;
+      input.value = '';
+      input.focus();
+    }
+
+    function hideInput(){
+      inputRow.style.display = 'none';
+    }
+
+    function goTo(nodeId){
+      const node = NODES[nodeId];
+      if (!node) return;
+      hideInput();
+      awaiting = null;
+      node.messages.forEach(msg => addMessage(msg, 'bot'));
+      setTimeout(() => addOptions(node.options), 250);
+    }
+
+    /* ---- Parcours final : capture du lead puis redirection WhatsApp ---- */
+    function startQuote(){
+      hideInput();
+      awaiting = null;
+      addMessage("Super ! Quelques clics suffisent 👇 Que souhaitez-vous ?", 'bot');
+      setTimeout(() => addChoiceButtons([
+        { label: '🌐 Je veux un site web', value: 'Site web' },
+        { label: '🤖 Je veux un chatbot WhatsApp', value: 'Chatbot WhatsApp' },
+        { label: '✨ Les deux', value: 'Site web + Chatbot WhatsApp' }
+      ], (opt) => {
+        lead.service = opt.value;
+        askSector();
+      }), 250);
+    }
+
+    function askSector(){
+      addMessage("Parfait ! Quel est votre métier ?", 'bot');
+      setTimeout(() => addChoiceButtons([
+        { label: '⚖️ Avocat', value: 'Avocat' },
+        { label: '🩺 Médecin', value: 'Médecin' },
+        { label: '🍽️ Restaurant', value: 'Restaurant' },
+        { label: '➕ Autre', value: '__other__' }
+      ], (opt) => {
+        if (opt.value === '__other__'){
+          awaiting = 'sector';
+          addMessage("Dites-nous votre métier :", 'bot');
+          showInput('Votre métier...');
+        } else {
+          lead.sector = opt.value;
+          askName();
+        }
+      }), 250);
+    }
+
+    function askName(){
+      awaiting = 'name';
+      addMessage("Merci ! Pour vous préparer un devis personnalisé, quel est votre prénom ?", 'bot');
+      showInput('Votre prénom...');
+    }
+
+    function askLastName(){
+      awaiting = 'lastname';
+      addMessage(`Merci ${lead.name} ! Et votre nom de famille ?`, 'bot');
+      showInput('Votre nom de famille...');
+    }
+
+    function askPhone(){
+      awaiting = 'phone';
+      addMessage(`Merci ! Et votre numéro WhatsApp ?`, 'bot');
+      showInput('Votre numéro WhatsApp...');
+    }
+
+    function finishLead(){
+      hideInput();
+      awaiting = null;
+      fetch('https://n8n.agencewebbot.com/webhook/lead-chatbot-devis', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prenom: lead.name, nom: lead.lastname, service: lead.service, secteur: lead.sector, telephone: lead.phone })
+      }).catch(() => {});
+      const msg = `Bonjour, je suis ${lead.name} ${lead.lastname} (métier : ${lead.sector}). Je souhaite : ${lead.service}. Mon numéro WhatsApp : ${lead.phone}.`;
+      const url = `https://api.whatsapp.com/send?phone=${WA_NUMBER}&text=${encodeURIComponent(msg)}`;
+      addMessage(`Parfait ${lead.name} ! Cliquez sur le bouton ci-dessous : WhatsApp va s'ouvrir avec votre message déjà prêt, il vous suffira de l'envoyer 👇`, 'bot');
+      addLink('💬 Ouvrir WhatsApp avec mon message', url);
+    }
+
+    function resetConversation(){
+      body.innerHTML = '';
+      hideInput();
+      awaiting = null;
+      lead = { service: '', sector: '', name: '', lastname: '', phone: '' };
+      started = false;
+    }
+
+    function startConversation(){
+      if (started) return;
+      started = true;
+      goTo('menu');
+    }
+
+    function handleSend(){
+      const value = input.value.trim();
+      if (!value) return;
+      addMessage(value, 'user');
+      input.value = '';
+      if (awaiting === 'sector'){
+        lead.sector = value;
+        askName();
+      } else if (awaiting === 'name'){
+        lead.name = value;
+        askLastName();
+      } else if (awaiting === 'lastname'){
+        lead.lastname = value;
+        askPhone();
+      } else if (awaiting === 'phone'){
+        lead.phone = value;
+        finishLead();
+      }
+    }
+
+    toggle.addEventListener('click', () => {
+      win.classList.toggle('open');
+      const isOpen = win.classList.contains('open');
+      label.classList.toggle('hidden', isOpen);
+      if (isOpen) {
+        startConversation();
+      } else {
+        resetConversation();
+      }
+    });
+    restartBtn.addEventListener('click', () => {
+      resetConversation();
+      startConversation();
+    });
+    sendBtn.addEventListener('click', handleSend);
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') handleSend();
+    });
+  })();
+</script>
+</body>
+</html>
