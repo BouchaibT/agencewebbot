@@ -227,6 +227,16 @@
     70%{box-shadow:0 10px 28px rgba(59,29,110,.45),0 0 0 26px rgba(59,29,110,0)}
     100%{box-shadow:0 10px 28px rgba(59,29,110,.45),0 0 0 0 rgba(59,29,110,0)}
   }
+  /* ===== Animations du robot SVG ===== */
+  .bot-toggle svg, .bot-head .bot-avatar svg{animation:botFloat 3.6s ease-in-out infinite}
+  @keyframes botFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  .bot-antenna{transform-box:fill-box;transform-origin:center bottom;animation:botAntenna 2.4s ease-in-out infinite}
+  @keyframes botAntenna{0%,100%{transform:rotate(-9deg)}50%{transform:rotate(9deg)}}
+  .bot-eye{transform-box:fill-box;transform-origin:center center;animation:botBlink 4.2s ease-in-out infinite}
+  @keyframes botBlink{0%,90%,100%{transform:scaleY(1)}94%,97%{transform:scaleY(.1)}}
+  @media (prefers-reduced-motion:reduce){
+    .bot-toggle svg,.bot-head .bot-avatar svg,.bot-antenna,.bot-eye{animation:none}
+  }
   .bot-label{
     position:fixed;bottom:124px;right:14px;z-index:999;
     background:var(--white);color:var(--violet);
@@ -514,14 +524,20 @@
 <!-- CHATBOT DE PROSPECTION -->
 <div class="bot-label" id="botLabel">Discutez avec nous !</div>
 <button class="bot-toggle" id="botToggle" aria-label="Ouvrir l'assistant Agence WebBot"><svg width="90" height="90" viewBox="0 0 160 190" xmlns="http://www.w3.org/2000/svg">
-  <line x1="80" y1="10" x2="80" y2="34" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
-  <circle cx="80" cy="8" r="8" fill="#a78bfa"/>
+  <g class="bot-antenna">
+    <line x1="80" y1="10" x2="80" y2="34" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="80" cy="8" r="8" fill="#a78bfa"/>
+  </g>
   <rect x="22" y="34" width="116" height="100" rx="32" fill="#ffffff"/>
   <rect x="22" y="34" width="116" height="100" rx="32" fill="url(#headGradFab)" opacity="0.18"/>
-  <circle cx="62" cy="84" r="13" fill="#2d1b69"/>
-  <circle cx="98" cy="84" r="13" fill="#2d1b69"/>
-  <circle cx="66" cy="80" r="4" fill="#ffffff" opacity=".8"/>
-  <circle cx="102" cy="80" r="4" fill="#ffffff" opacity=".8"/>
+  <g class="bot-eye">
+    <circle cx="62" cy="84" r="13" fill="#2d1b69"/>
+    <circle cx="66" cy="80" r="4" fill="#ffffff" opacity=".8"/>
+  </g>
+  <g class="bot-eye">
+    <circle cx="98" cy="84" r="13" fill="#2d1b69"/>
+    <circle cx="102" cy="80" r="4" fill="#ffffff" opacity=".8"/>
+  </g>
   <path d="M 64 110 Q 80 122 96 110" stroke="#2d1b69" stroke-width="5" fill="none" stroke-linecap="round"/>
   <rect x="8" y="68" width="14" height="34" rx="7" fill="#a78bfa"/>
   <rect x="138" y="68" width="14" height="34" rx="7" fill="#a78bfa"/>
@@ -532,14 +548,20 @@
 <div class="bot-window" id="botWindow">
   <div class="bot-head">
     <div class="bot-avatar"><svg width="34" height="40" viewBox="0 0 160 190" xmlns="http://www.w3.org/2000/svg">
-      <line x1="80" y1="10" x2="80" y2="34" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
-      <circle cx="80" cy="8" r="8" fill="#a78bfa"/>
+      <g class="bot-antenna">
+        <line x1="80" y1="10" x2="80" y2="34" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="80" cy="8" r="8" fill="#a78bfa"/>
+      </g>
       <rect x="22" y="34" width="116" height="100" rx="32" fill="#ffffff"/>
       <rect x="22" y="34" width="116" height="100" rx="32" fill="url(#headGradAv)" opacity="0.18"/>
-      <circle cx="62" cy="84" r="13" fill="#2d1b69"/>
-      <circle cx="98" cy="84" r="13" fill="#2d1b69"/>
-      <circle cx="66" cy="80" r="4" fill="#ffffff" opacity=".8"/>
-      <circle cx="102" cy="80" r="4" fill="#ffffff" opacity=".8"/>
+      <g class="bot-eye">
+        <circle cx="62" cy="84" r="13" fill="#2d1b69"/>
+        <circle cx="66" cy="80" r="4" fill="#ffffff" opacity=".8"/>
+      </g>
+      <g class="bot-eye">
+        <circle cx="98" cy="84" r="13" fill="#2d1b69"/>
+        <circle cx="102" cy="80" r="4" fill="#ffffff" opacity=".8"/>
+      </g>
       <path d="M 64 110 Q 80 122 96 110" stroke="#2d1b69" stroke-width="5" fill="none" stroke-linecap="round"/>
       <rect x="8" y="68" width="14" height="34" rx="7" fill="#a78bfa"/>
       <rect x="138" y="68" width="14" height="34" rx="7" fill="#a78bfa"/>

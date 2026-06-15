@@ -3,27 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Démarrer mon site — Agence WebBot</title>
-  <meta name="description" content="Formulaire d'onboarding express Agence WebBot : votre site vitrine livré rapidement.">
+  <title>Onboarding cabinet juridique — Agence WebBot</title>
+  <meta name="description" content="Questionnaire d'onboarding Agence WebBot pour cabinets juridiques : votre site vitrine professionnel.">
   <meta name="robots" content="noindex">
   <link rel="icon" href="/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{ --bleu:#0a5c8a; --bleu-d:#074463; --bleu-pale:#eaf3f8; --vert:#1aa260; --texte:#1a2734; --gris:#6b7a89; --bord:#dce5ec; }
+    :root{ --bleu:#0a5c8a; --bleu-d:#074463; --bleu-pale:#eaf3f8; --texte:#1a2734; --gris:#6b7a89; --bord:#dce5ec; }
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Poppins',sans-serif;color:var(--texte);background:linear-gradient(135deg,#eaf3f8,#f7fafc);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
-    .card{background:#fff;max-width:560px;width:100%;border-radius:18px;box-shadow:0 12px 50px rgba(10,92,138,.15);overflow:hidden}
-    .head{background:linear-gradient(135deg,var(--bleu),var(--bleu-d));color:#fff;padding:32px 32px 26px}
+    .card{background:#fff;max-width:620px;width:100%;border-radius:18px;box-shadow:0 12px 50px rgba(10,92,138,.15);overflow:hidden}
+    .head{background:linear-gradient(135deg,var(--bleu),var(--bleu-d));color:#fff;padding:34px 36px 28px}
     .logo{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.18);font-weight:700;font-size:1.4rem;margin-bottom:14px}
-    .head h1{font-size:1.5rem;font-weight:600;line-height:1.25}
+    .head h1{font-size:1.5rem;font-weight:600;line-height:1.3}
     .head p{opacity:.9;font-size:.92rem;margin-top:8px}
-    form{padding:28px 32px 32px}
-    .field{margin-bottom:20px}
-    label{display:block;font-weight:500;font-size:.9rem;margin-bottom:7px}
-    label .req{color:#e23b3b}
-    input,select{width:100%;padding:12px 14px;border:1.5px solid var(--bord);border-radius:10px;font-family:inherit;font-size:.95rem;color:var(--texte);transition:border .2s}
-    input:focus,select:focus{outline:none;border-color:var(--bleu)}
+    form{padding:30px 36px 34px}
+    .field{margin-bottom:22px}
+    legend,label.block{display:block;font-weight:500;font-size:.9rem;margin-bottom:8px}
+    .req{color:#e23b3b}
+    input[type=text],input[type=tel],select,textarea{width:100%;padding:12px 14px;border:1.5px solid var(--bord);border-radius:10px;font-family:inherit;font-size:.95rem;color:var(--texte);transition:border .2s;background:#fff}
+    textarea{resize:vertical;min-height:96px}
+    input:focus,select:focus,textarea:focus{outline:none;border-color:var(--bleu)}
+    fieldset{border:none}
+    .choices{display:flex;flex-wrap:wrap;gap:10px 22px}
+    .choice{display:flex;align-items:center;gap:8px;font-size:.92rem;font-weight:400;cursor:pointer}
+    .choice input{width:18px;height:18px;accent-color:var(--bleu);cursor:pointer}
+    input[type=file]{width:100%;font-size:.88rem;color:var(--gris);padding:10px 0}
+    .conditional{display:none;margin-top:12px}
+    .conditional.show{display:block}
     .formules{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
     .formule{position:relative}
     .formule input{position:absolute;opacity:0;inset:0;cursor:pointer}
@@ -34,110 +42,211 @@
     button{width:100%;background:var(--bleu);color:#fff;border:none;padding:15px;border-radius:10px;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;transition:background .2s;margin-top:6px}
     button:hover{background:var(--bleu-d)}
     button:disabled{opacity:.6;cursor:default}
-    .note{font-size:.78rem;color:var(--gris);text-align:center;margin-top:14px}
-    .msg{display:none;padding:16px;border-radius:10px;margin-bottom:18px;font-size:.92rem}
-    .msg.ok{display:block;background:#e7f7ee;color:#0e7a45;border:1px solid #b9e7cd}
+    .note{font-size:.78rem;color:var(--gris);text-align:center;margin-top:16px}
+    .msg{display:none;padding:14px;border-radius:10px;margin-bottom:18px;font-size:.92rem}
     .msg.err{display:block;background:#fdecec;color:#c0392b;border:1px solid #f5c6c6}
-    @media(max-width:460px){.formules{grid-template-columns:1fr}}
+    /* Confirmation */
+    .confirm{display:none;padding:48px 36px;text-align:center}
+    .confirm.show{display:block}
+    .confirm h2{font-size:1.35rem;font-weight:600;color:var(--bleu-d);margin-bottom:14px}
+    .confirm p{color:var(--gris);font-size:.95rem;line-height:1.6;max-width:420px;margin:0 auto}
+    .confirm .ref{margin-top:22px;font-size:.85rem;color:var(--texte)}
+    @media(max-width:520px){.formules{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <div class="card">
     <div class="head">
       <div class="logo">W</div>
-      <h1>Démarrons votre site 🚀</h1>
-      <p>Remplissez ce formulaire : votre dossier est créé et votre site généré automatiquement.</p>
+      <h1>Onboarding de votre cabinet juridique</h1>
+      <p>Renseignez ces informations : nous préparons votre site vitrine professionnel.</p>
     </div>
+
     <form id="f">
       <div id="msg" class="msg"></div>
 
       <div class="field">
-        <label>Nom du client / entreprise <span class="req">*</span></label>
-        <input type="text" name="nom_client" required placeholder="Ex : Cabinet Alami">
+        <label class="block">Nom complet du cabinet <span class="req">*</span></label>
+        <input type="text" name="nom_cabinet" required placeholder="Ex : Cabinet Alami &amp; Associés">
       </div>
 
       <div class="field">
-        <label>Secteur d'activité <span class="req">*</span></label>
-        <select name="secteur" required>
+        <label class="block">Nom et titre du responsable <span class="req">*</span></label>
+        <input type="text" name="responsable" required placeholder="Ex : Maître Karim Alami">
+      </div>
+
+      <div class="field">
+        <label class="block">Ville et adresse <span class="req">*</span></label>
+        <input type="text" name="ville_adresse" required placeholder="Ex : Casablanca, 12 boulevard Zerktouni">
+      </div>
+
+      <div class="field">
+        <label class="block">Numéro WhatsApp professionnel <span class="req">*</span></label>
+        <input type="tel" name="whatsapp" required placeholder="Ex : 06 00 00 00 00">
+      </div>
+
+      <div class="field">
+        <label class="block">Spécialité principale <span class="req">*</span></label>
+        <select name="specialite" required>
           <option value="">— Choisir —</option>
-          <option value="avocat">Avocat / Notaire</option>
-          <option value="medecin">Médecin / Cabinet médical</option>
-          <option value="comptable">Comptable / Fiduciaire</option>
-          <option value="dentiste">Dentiste</option>
-          <option value="pharmacie">Pharmacie</option>
-          <option value="architecte">Architecte</option>
-          <option value="immobilier">Immobilier</option>
-          <option value="restaurant">Restaurant / Café</option>
-          <option value="artisan">Artisan / BTP</option>
-          <option value="salon_beaute">Salon / Beauté</option>
-          <option value="coach">Coach / Formation</option>
-          <option value="autre">Autre</option>
+          <option value="Droit pénal">Droit pénal</option>
+          <option value="Droit de la famille">Droit de la famille</option>
+          <option value="Droit des affaires">Droit des affaires</option>
+          <option value="Droit immobilier">Droit immobilier</option>
+          <option value="Autre">Autre</option>
         </select>
       </div>
 
       <div class="field">
-        <label>Téléphone WhatsApp <span class="req">*</span></label>
-        <input type="tel" name="telephone" required placeholder="06 00 00 00 00">
+        <fieldset>
+          <legend>Langues de travail <span class="req">*</span></legend>
+          <div class="choices">
+            <label class="choice"><input type="checkbox" name="langues" value="Français"> Français</label>
+            <label class="choice"><input type="checkbox" name="langues" value="Arabe"> Arabe</label>
+            <label class="choice"><input type="checkbox" name="langues" value="Les deux"> Les deux</label>
+          </div>
+        </fieldset>
       </div>
 
       <div class="field">
-        <label>Formule <span class="req">*</span></label>
+        <fieldset>
+          <legend>Réception des clients <span class="req">*</span></legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="reception" value="Sur rendez-vous uniquement" required> Sur rendez-vous uniquement</label>
+            <label class="choice"><input type="radio" name="reception" value="Sans rendez-vous"> Sans rendez-vous</label>
+            <label class="choice"><input type="radio" name="reception" value="Les deux"> Les deux</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="field">
+        <fieldset>
+          <legend>Logo existant <span class="req">*</span></legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="logo_existant" value="Oui" required> Oui</label>
+            <label class="choice"><input type="radio" name="logo_existant" value="Non"> Non</label>
+          </div>
+          <div id="logoUpload" class="conditional">
+            <label class="block" style="margin-top:6px">Téléversez votre logo</label>
+            <input type="file" id="logoFile" accept="image/*">
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="field">
+        <label class="block">Formule choisie <span class="req">*</span></label>
         <div class="formules">
           <div class="formule">
-            <input type="radio" name="formule" value="Essentiel 700" required>
+            <input type="radio" name="formule" value="Essentiel 700 DH/mois" required>
             <span><b>Essentiel</b><small>700 DH/mois</small></span>
           </div>
           <div class="formule">
-            <input type="radio" name="formule" value="Standard 1000">
+            <input type="radio" name="formule" value="Standard 1000 DH/mois">
             <span><b>Standard</b><small>1000 DH/mois</small></span>
           </div>
           <div class="formule">
-            <input type="radio" name="formule" value="Premium 1500">
+            <input type="radio" name="formule" value="Premium 1500 DH/mois">
             <span><b>Premium</b><small>1500 DH/mois</small></span>
           </div>
         </div>
       </div>
 
       <div class="field">
-        <label>Domaine souhaité</label>
-        <input type="text" name="domaine_souhaite" placeholder="Ex : cabinet-alami.ma">
+        <label class="block">Souhaits particuliers pour le site</label>
+        <textarea name="souhaits" placeholder="Décrivez vos attentes : sections souhaitées, couleurs, références, ton, etc."></textarea>
       </div>
 
-      <div class="field">
-        <label>Email <span class="req">*</span></label>
-        <input type="email" name="email" required placeholder="contact@exemple.com">
-      </div>
-
-      <button type="submit" id="btn">Créer mon site</button>
-      <p class="note">Agence WebBot — sites & chatbots WhatsApp au Maroc</p>
+      <button type="submit" id="btn">Envoyer ma demande</button>
+      <p class="note">Agence WebBot — sites &amp; assistants WhatsApp pour cabinets juridiques au Maroc</p>
     </form>
+
+    <div class="confirm" id="confirm">
+      <h2>Demande enregistrée</h2>
+      <p>Merci. Les informations de votre cabinet ont bien été reçues. Notre équipe les examine et vous recontacte sur votre numéro WhatsApp professionnel pour la suite.</p>
+      <p class="ref">Agence WebBot — contact@agencewebbot.com</p>
+    </div>
   </div>
 
   <script>
-    const WEBHOOK = "https://n8n.agencewebbot.com/webhook/onboarding-github";
+    const WEBHOOK = "https://n8n.agencewebbot.com/webhook/onboarding-juridique";
     const form = document.getElementById('f');
     const msg = document.getElementById('msg');
     const btn = document.getElementById('btn');
+    const confirm = document.getElementById('confirm');
+    const logoRadios = form.querySelectorAll('input[name="logo_existant"]');
+    const logoUpload = document.getElementById('logoUpload');
+    const logoFile = document.getElementById('logoFile');
+
+    // Affiche le champ upload uniquement si "Oui"
+    logoRadios.forEach(r => r.addEventListener('change', () => {
+      const oui = form.querySelector('input[name="logo_existant"]:checked').value === 'Oui';
+      logoUpload.classList.toggle('show', oui);
+      if (!oui) logoFile.value = '';
+    }));
+
+    function fileToBase64(file){
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       msg.className = 'msg'; msg.textContent = '';
+
+      // Validation langues (au moins une case)
+      const langues = [...form.querySelectorAll('input[name="langues"]:checked')].map(c => c.value);
+      if (langues.length === 0) {
+        msg.className = 'msg err';
+        msg.textContent = 'Veuillez indiquer au moins une langue de travail.';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+
       btn.disabled = true; btn.textContent = 'Envoi en cours…';
-      const data = Object.fromEntries(new FormData(form).entries());
+
       try {
+        const fd = new FormData(form);
+        const data = {
+          nom_cabinet: fd.get('nom_cabinet'),
+          responsable: fd.get('responsable'),
+          ville_adresse: fd.get('ville_adresse'),
+          whatsapp: fd.get('whatsapp'),
+          specialite: fd.get('specialite'),
+          langues: langues.join(', '),
+          reception: fd.get('reception'),
+          logo_existant: fd.get('logo_existant'),
+          formule: fd.get('formule'),
+          souhaits: fd.get('souhaits') || '',
+          logo_nom: '',
+          logo_base64: '',
+          date_soumission: new Date().toISOString()
+        };
+
+        // Logo en base64 si fourni
+        if (data.logo_existant === 'Oui' && logoFile.files.length > 0) {
+          data.logo_nom = logoFile.files[0].name;
+          data.logo_base64 = await fileToBase64(logoFile.files[0]);
+        }
+
         const r = await fetch(WEBHOOK, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
         });
         if (!r.ok) throw new Error('HTTP ' + r.status);
-        msg.className = 'msg ok';
-        msg.textContent = '✅ Merci ' + data.nom_client + ' ! Votre dossier est créé et votre site est en cours de génération. Nous vous recontactons très vite.';
-        form.reset();
+
+        // Page de confirmation sobre
+        form.style.display = 'none';
+        confirm.classList.add('show');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } catch (err) {
         msg.className = 'msg err';
-        msg.textContent = '❌ Une erreur est survenue. Réessayez ou contactez-nous à contact@agencewebbot.com.';
-      } finally {
-        btn.disabled = false; btn.textContent = 'Créer mon site';
+        msg.textContent = 'Une erreur est survenue. Réessayez ou contactez-nous à contact@agencewebbot.com.';
+        btn.disabled = false; btn.textContent = 'Envoyer ma demande';
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     });
