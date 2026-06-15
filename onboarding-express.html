@@ -15,7 +15,15 @@
     body{font-family:'Poppins',sans-serif;color:var(--texte);background:linear-gradient(135deg,#eaf3f8,#f7fafc);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
     .card{background:#fff;max-width:620px;width:100%;border-radius:18px;box-shadow:0 12px 50px rgba(10,92,138,.15);overflow:hidden}
     .head{background:linear-gradient(135deg,var(--bleu),var(--bleu-d));color:#fff;padding:34px 36px 28px}
-    .logo{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.18);font-weight:700;font-size:1.4rem;margin-bottom:14px}
+    .logo{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;margin-bottom:14px}
+    /* ===== Animations du robot SVG ===== */
+    .logo svg{animation:botFloat 1.8s ease-in-out infinite}
+    @keyframes botFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+    .bot-antenna{transform-box:fill-box;transform-origin:center bottom;animation:botAntenna 1.2s ease-in-out infinite}
+    @keyframes botAntenna{0%,100%{transform:rotate(-9deg)}50%{transform:rotate(9deg)}}
+    .bot-eye{transform-box:fill-box;transform-origin:center center;animation:botBlink 2.1s ease-in-out infinite}
+    @keyframes botBlink{0%,90%,100%{transform:scaleY(1)}94%,97%{transform:scaleY(.1)}}
+    @media (prefers-reduced-motion:reduce){.logo svg,.bot-antenna,.bot-eye{animation:none}}
     .head h1{font-size:1.5rem;font-weight:600;line-height:1.3}
     .head p{opacity:.9;font-size:.92rem;margin-top:8px}
     form{padding:30px 36px 34px}
@@ -57,8 +65,31 @@
 <body>
   <div class="card">
     <div class="head">
-      <div class="logo">W</div>
-      <h1>Onboarding de votre cabinet juridique</h1>
+      <div class="logo">
+        <svg width="38" height="45" viewBox="0 0 160 190" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g class="bot-antenna">
+            <line x1="80" y1="10" x2="80" y2="34" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="80" cy="8" r="8" fill="#a78bfa"/>
+          </g>
+          <rect x="22" y="34" width="116" height="100" rx="32" fill="#ffffff"/>
+          <rect x="22" y="34" width="116" height="100" rx="32" fill="url(#headGradLogo)" opacity="0.18"/>
+          <g class="bot-eye">
+            <circle cx="62" cy="84" r="13" fill="#2d1b69"/>
+            <circle cx="66" cy="80" r="4" fill="#ffffff" opacity=".8"/>
+          </g>
+          <g class="bot-eye">
+            <circle cx="98" cy="84" r="13" fill="#2d1b69"/>
+            <circle cx="102" cy="80" r="4" fill="#ffffff" opacity=".8"/>
+          </g>
+          <path d="M 64 110 Q 80 122 96 110" stroke="#2d1b69" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <rect x="8" y="68" width="14" height="34" rx="7" fill="#a78bfa"/>
+          <rect x="138" y="68" width="14" height="34" rx="7" fill="#a78bfa"/>
+          <rect x="42" y="140" width="76" height="46" rx="20" fill="#ffffff" opacity=".92"/>
+          <circle cx="80" cy="163" r="11" fill="#25d366"/>
+          <defs><linearGradient id="headGradLogo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4c1d95"/><stop offset="1" stop-color="#a78bfa"/></linearGradient></defs>
+        </svg>
+      </div>
+      <h1>Onboarding de votre activité professionnelle</h1>
       <p>Renseignez ces informations : nous préparons votre site vitrine professionnel.</p>
     </div>
 
@@ -87,14 +118,25 @@
 
       <div class="field">
         <label class="block">Spécialité principale <span class="req">*</span></label>
-        <select name="specialite" required>
+        <select name="specialite" id="specialite" required>
           <option value="">— Choisir —</option>
           <option value="Droit pénal">Droit pénal</option>
           <option value="Droit de la famille">Droit de la famille</option>
           <option value="Droit des affaires">Droit des affaires</option>
           <option value="Droit immobilier">Droit immobilier</option>
+          <option value="Médecin">Médecin</option>
+          <option value="Pharmacien">Pharmacien</option>
+          <option value="Comptable">Comptable</option>
+          <option value="Architecte">Architecte</option>
+          <option value="Notaire">Notaire</option>
+          <option value="Huissier">Huissier</option>
+          <option value="Conseiller fiscal">Conseiller fiscal</option>
           <option value="Autre">Autre</option>
         </select>
+        <div id="autreMetier" class="conditional">
+          <label class="block" style="margin-top:6px">Précisez votre métier <span class="req">*</span></label>
+          <input type="text" id="metierLibre" name="metier_libre" placeholder="Ex : Vétérinaire, Kinésithérapeute…">
+        </div>
       </div>
 
       <div class="field">
@@ -176,6 +218,17 @@
     const logoRadios = form.querySelectorAll('input[name="logo_existant"]');
     const logoUpload = document.getElementById('logoUpload');
     const logoFile = document.getElementById('logoFile');
+    const specialite = document.getElementById('specialite');
+    const autreMetier = document.getElementById('autreMetier');
+    const metierLibre = document.getElementById('metierLibre');
+
+    // Affiche le champ "Précisez votre métier" uniquement si "Autre"
+    specialite.addEventListener('change', () => {
+      const autre = specialite.value === 'Autre';
+      autreMetier.classList.toggle('show', autre);
+      metierLibre.required = autre;
+      if (!autre) metierLibre.value = '';
+    });
 
     // Affiche le champ upload uniquement si "Oui"
     logoRadios.forEach(r => r.addEventListener('change', () => {
@@ -215,7 +268,8 @@
           responsable: fd.get('responsable'),
           ville_adresse: fd.get('ville_adresse'),
           whatsapp: fd.get('whatsapp'),
-          specialite: fd.get('specialite'),
+          specialite: fd.get('specialite') === 'Autre' ? (fd.get('metier_libre') || 'Autre') : fd.get('specialite'),
+          metier_libre: fd.get('metier_libre') || '',
           langues: langues.join(', '),
           reception: fd.get('reception'),
           logo_existant: fd.get('logo_existant'),
