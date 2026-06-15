@@ -222,13 +222,19 @@
     const autreMetier = document.getElementById('autreMetier');
     const metierLibre = document.getElementById('metierLibre');
 
-    // Affiche le champ "Précisez votre métier" uniquement si "Autre"
-    specialite.addEventListener('change', () => {
+    // ===== Champ "Précisez votre métier" : affiché dès que "Autre" est choisi =====
+    // Logique robuste : on pilote directement style.display (indépendant du CSS),
+    // on écoute change + input, et on applique l'état correct dès le chargement.
+    function majAutreMetier() {
       const autre = specialite.value === 'Autre';
-      autreMetier.classList.toggle('show', autre);
+      autreMetier.style.display = autre ? 'block' : 'none';
+      autreMetier.classList.toggle('show', autre); // compat. avec le CSS existant
       metierLibre.required = autre;
       if (!autre) metierLibre.value = '';
-    });
+    }
+    specialite.addEventListener('change', majAutreMetier);
+    specialite.addEventListener('input', majAutreMetier);
+    majAutreMetier();
 
     // Affiche le champ upload uniquement si "Oui"
     logoRadios.forEach(r => r.addEventListener('change', () => {
