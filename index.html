@@ -57,9 +57,9 @@
   .hero .dedans{position:absolute; inset:0; display:flex; flex-direction:column}
   nav{display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:40px; padding:30px 0}
   .menu{justify-self:center}
-  .marque{display:flex; align-items:center; gap:13px; color:#fff; font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:36px; letter-spacing:-.02em}
+  .marque{display:flex; align-items:center; gap:13px; color:#fff; font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:29px; letter-spacing:-.02em; white-space:nowrap}
   
-  .menu{display:flex; gap:40px; color:#EDE5D8; font-size:17.5px; font-weight:700; white-space:nowrap; letter-spacing:.01em; text-shadow:0 1px 4px rgba(0,0,0,.55)}
+  .menu{display:flex; gap:32px; color:#EDE5D8; font-size:16.5px; font-weight:700; white-space:nowrap; letter-spacing:.01em; text-shadow:0 1px 4px rgba(0,0,0,.55)}
   .menu a{cursor:pointer}
   .bouton-nav{display:inline-block; background:#fff; color:var(--encre); padding:14px 27px; border-radius:99px; font-weight:600; font-size:15.5px; cursor:pointer}
 
@@ -184,6 +184,38 @@
     .carte h3{font-size:22px}
     .pied{flex-direction:column; gap:22px; align-items:flex-start}
   }
+
+  /* ---------- sur-titres de section (le rythme) ---------- */
+  .surtitre{display:inline-block; font-size:13.5px; font-weight:700; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--terre); margin-bottom:14px}
+  .tete h2 em{font-style:italic; font-weight:400; color:var(--terre)}
+
+  /* ---------- la conversation, le produit enfin visible ---------- */
+  .conv{display:grid; grid-template-columns:.92fr 1.08fr; gap:52px; align-items:start}
+  .tel{background:#0B141A; border-radius:36px; padding:15px; box-shadow:0 60px 90px -46px rgba(20,16,10,.65);
+    max-width:420px; justify-self:end; width:100%}
+  .tel .ecran{background:#ECE5DD; border-radius:24px; overflow:hidden}
+  .tel .barre{background:#075E54; color:#fff; padding:14px 16px; display:flex; align-items:center; gap:11px}
+  .tel .barre .rond{width:38px; height:38px; border-radius:50%; background:#25D366; display:flex;
+    align-items:center; justify-content:center; font-weight:700; font-size:14px; flex-shrink:0}
+  .tel .barre b{font-size:15.5px; display:block; line-height:1.2}
+  .tel .barre i{font-style:normal; font-size:12.5px; opacity:.82}
+  .fil{padding:16px 14px 20px; display:flex; flex-direction:column; gap:11px}
+  .msg{max-width:84%; padding:11px 14px; border-radius:15px; font-size:14.5px; line-height:1.5; color:#111B21}
+  .msg.eux{align-self:flex-start; background:#fff; border-top-left-radius:4px}
+  .msg.lui{align-self:flex-end; background:#DCF8C6; border-top-right-radius:4px}
+  .msg .h{display:block; font-size:10.5px; color:#667781; text-align:right; margin-top:6px}
+  .fil .jour{align-self:center; background:rgba(255,255,255,.75); color:#54656F; font-size:11.5px;
+    padding:6px 14px; border-radius:9px; font-weight:600}
+  .conv-txt .bloc{border-left:3px solid var(--trait); padding-left:20px; margin-bottom:26px}
+  .conv-txt .bloc b{font-family:'Fraunces',Georgia,serif; font-size:21px; display:block; margin-bottom:7px}
+  .conv-txt .bloc p{color:var(--gris); font-size:16.5px; line-height:1.65}
+  .conv-leger{color:var(--gris2); font-size:14px; margin-top:22px; line-height:1.6}
+  @media (max-width:820px){
+    .conv{grid-template-columns:1fr; gap:34px}
+    .tel{justify-self:center}
+    .tete h2{font-size:31px}
+  }
 </style>
 </head>
 <body>
@@ -197,15 +229,15 @@
       <div class="contenu">
         <nav>
           <div class="marque">Agence WebBot</div>
-          <div class="menu"><a href="#assistant">L'assistant</a><a href="#fonctionnement">Fonctionnement</a><a href="#guides">Guides</a><a href="#contact">Contact</a></div>
+          <div class="menu"><a href="#conversation">Un exemple</a><a href="#assistant">L'assistant</a><a href="#fonctionnement">Fonctionnement</a><a href="#guides">Guides</a><a href="#contact">Contact</a></div>
           <a class="bouton-nav" href="#contact">Demander une démo</a>
         </nav>
       </div>
       <div class="contenu" style="display:flex; flex-direction:column; flex:1">
         <div class="hero-titre">
           <div class="haut">Conciergerie WhatsApp pour propriétaires au Maroc</div>
-          <h1>Le message arrive à 22 h.<br><em>Quelqu'un répond quand même.</em></h1>
-          <p>Arrivée tardive, code d'accès, panne de chauffe-eau : l'assistant WhatsApp de votre conciergerie répond à votre place, pour les propriétaires et gestionnaires de locations partout au Maroc : Marrakech, Casablanca, Agadir, Tanger, Fès, Rabat, et vous passe le relais dès que ça sort du cadre que vous avez fixé.</p>
+          <h1>Le message arrive à 2 h du matin.<br><em>Quelqu'un répond quand même.</em></h1>
+          <p>Arrivée tardive, code d'accès, panne de chauffe-eau : l'assistant répond aux voyageurs à votre place, de Marrakech à Tanger, et vous passe le relais quand ça sort du cadre.</p>
           <div class="hero-actions">
             <a class="btn-blanc" href="#contact">Demander une démonstration</a>
             <a class="btn-verre" href="#fonctionnement">Comment ça marche</a>
@@ -231,11 +263,60 @@
     </section>
   </div>
 
+<div style="background:var(--sable2)">
+  <div class="contenu">
+    <section class="section" id="conversation">
+      <div class="tete revele">
+        <div>
+          <span class="surtitre">Deux heures du matin, un vol en retard</span>
+          <h2>Vos voyageurs écrivent la nuit.<br><em>Vous, vous dormez.</em></h2>
+          <p>Ce n'est pas une promesse : c'est le genre de conversation qui part toute seule, pendant que vous êtes couché. Vous la relisez le lendemain matin.</p>
+        </div>
+      </div>
+      <div class="conv revele">
+        <div class="tel">
+          <div class="ecran">
+            <div class="barre">
+              <div class="rond">AW</div>
+              <div><b>Conciergerie — Appartement Guéliz</b><i>en ligne</i></div>
+            </div>
+            <div class="fil">
+              <span class="jour">Aujourd'hui</span>
+              <div class="msg eux">Bonjour, notre vol est retardé. On atterrit vers 2 h 40, on sera au logement vers 3 h 30. C'est possible ?<span class="h">02:08</span></div>
+              <div class="msg lui">Bonjour ! Aucun souci, l'accès est autonome à toute heure. Je vous envoie tout de suite le code et l'itinéraire depuis l'aéroport.<span class="h">02:08</span></div>
+              <div class="msg lui">La boîte à clés est sur le mur, à droite de la porte : code 4-7-2-9. Pour l'itinéraire, prenez la sortie vers Guéliz, puis la deuxième rue à gauche.<span class="h">02:09</span></div>
+              <div class="msg eux">Parfait, merci beaucoup. Et le chauffage marche à cette heure ?<span class="h">02:11</span></div>
+              <div class="msg lui">Oui. Le thermostat est sur le mur du salon, il est déjà réglé. Si vous avez froid en arrivant, montez-le de deux degrés, ça chauffe en quelques minutes.<span class="h">02:11</span></div>
+              <div class="msg eux">Génial. Bonne nuit !<span class="h">02:12</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="conv-txt">
+          <div class="bloc">
+            <b>Aucune question sans réponse</b>
+            <p>Arrivée tardive, code d'accès, chauffage, piscine, stationnement : le voyageur a sa réponse au moment où il la demande. Pas le lendemain matin.</p>
+          </div>
+          <div class="bloc">
+            <b>Et quand ça sort du cadre</b>
+            <p>Une remise, un litige, une panne : l'assistant s'arrête et vous transmet la conversation. La limite, c'est vous qui la fixez, et vous pouvez la changer quand vous voulez.</p>
+          </div>
+          <div class="bloc">
+            <b>Vous relisez tout, à votre heure</b>
+            <p>Chaque échange reste visible. Vous pouvez reprendre la conversation d'un seul message, à tout moment, sans que le voyageur s'en aperçoive.</p>
+          </div>
+          <p class="conv-leger">Exemple de conversation, monté à partir des questions qui reviennent le plus souvent dans les locations courte durée au Maroc.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
   <div class="contenu">
     <section class="section" id="assistant">
       <div class="tete revele">
         <div>
-          <h2>Ce qu'il traite seul,<br>et ce qu'il vous laisse</h2>
+          <span class="surtitre">Ce qu'il fait, et ce qu'il ne fait pas</span>
+          <h2>Ce qu'il traite seul,<br><em>et ce qu'il vous laisse</em></h2>
           <p>Un assistant n'est utile que s'il sait s'arrêter. On place la limite avec vous, au moment de l'installation.</p>
         </div>
       </div>
@@ -277,7 +358,8 @@
       <section class="section" id="fonctionnement">
         <div class="tete revele">
           <div>
-            <h2>Comment ça se passe</h2>
+            <span class="surtitre">Mise en service</span>
+            <h2>Trois étapes,<br><em>et c'est vous qui décidez</em></h2>
             <p>De la première conversation à la mise en service, sans que vous ayez à comprendre la technique.</p>
           </div>
         </div>
@@ -306,14 +388,15 @@
     <section class="section" id="guides">
       <div class="tete revele">
         <div>
-          <h2>Nos guides</h2>
+          <span class="surtitre">Guides pour propriétaires et gestionnaires</span>
+          <h2>Ce que la loi marocaine exige,<br><em>et ce qu'il faut faire</em></h2>
           <p>Ce que dit la loi marocaine, et ce qu'il faut faire concrètement. Pour les propriétaires et les gestionnaires de biens.</p>
         </div>
         <a class="lien" href="#guides">Voir les guides</a>
       </div>
       <div class="grille revele" id="guides">
         <a class="carte" href="teledeclaration-location-courte-duree-maroc.html">
-          <img src="photos/chambre-bois-sculpte-teledeclaration.jpg" alt="Chambre marocaine au bois sculpté et au plafond peint">
+          <img loading="lazy" decoding="async" src="photos/chambre-bois-sculpte-teledeclaration.jpg" alt="Chambre marocaine au bois sculpté et au plafond peint">
           <div class="corps">
             <span class="etq">Maroc</span>
             <h3>Télédéclaration : chaque voyageur déclaré avant huit heures</h3>
@@ -322,7 +405,7 @@
           </div>
         </a>
         <a class="carte" href="assurance-location-courte-duree-maroc.html">
-          <img src="photos/assurance-salle-de-bain-marrakech.jpg" alt="Salle de bain marocaine avec arc et appliques en fer forgé">
+          <img loading="lazy" decoding="async" src="photos/assurance-salle-de-bain-marrakech.jpg" alt="Salle de bain marocaine avec arc et appliques en fer forgé">
           <div class="corps">
             <span class="etq">Maroc</span>
             <h3>Assurance : les trois risques que la loi impose de couvrir</h3>
@@ -331,7 +414,7 @@
           </div>
         </a>
         <a class="carte" href="menage-location-courte-duree.html">
-          <img src="photos/chambre-fes-menage.jpg" alt="Chambre marocaine lumineuse, lit blanc et tapis à rayures">
+          <img loading="lazy" decoding="async" src="photos/chambre-fes-menage.jpg" alt="Chambre marocaine lumineuse, lit blanc et tapis à rayures">
           <div class="corps">
             <span class="etq">Maroc</span>
             <h3>Ménage entre deux séjours : les deux heures qui décident</h3>
@@ -340,7 +423,7 @@
           </div>
         </a>
         <a class="carte" href="conciergerie-airbnb-proprietaire-marrakech.html">
-          <img src="photos/palais-marrakech-cour.jpg" alt="Cour d'un palais marocain avec zellige et fontaine">
+          <img loading="lazy" decoding="async" src="photos/palais-marrakech-cour.jpg" alt="Cour d'un palais marocain avec zellige et fontaine">
           <div class="corps">
             <span class="etq">Maroc</span>
             <h3>Ce qu'un propriétaire doit vérifier avant de confier son bien</h3>
@@ -349,7 +432,7 @@
           </div>
         </a>
         <a class="carte" href="conciergerie-airbnb-marrakech.html">
-          <img src="photos/riad-cour-arcs-marrakech.jpg" alt="Cour de riad marocain avec arcs, fontaine et sol en zellige">
+          <img loading="lazy" decoding="async" src="photos/riad-cour-arcs-marrakech.jpg" alt="Cour de riad marocain avec arcs, fontaine et sol en zellige">
           <div class="corps">
             <span class="etq">Maroc</span>
             <h3>Conciergerie Airbnb : les messages des voyageurs, partout au Maroc</h3>
@@ -358,7 +441,7 @@
           </div>
         </a>
         <a class="carte" href="guide-licence-location-courte-duree-maroc.html">
-          <img src="photos/patio-riad-marrakech.jpg" alt="Patio d'un riad marocain : piscine turquoise et zellige">
+          <img loading="lazy" decoding="async" src="photos/patio-riad-marrakech.jpg" alt="Patio d'un riad marocain : piscine turquoise et zellige">
           <div class="corps">
             <span class="etq">Maroc</span>
             <h3>Location courte durée au Maroc : ce que la loi exige</h3>
@@ -391,7 +474,7 @@
     <div class="contenu">
       <div class="pied">
         <div class="pied-gauche">
-          <img src="photos/logo-w-96.png" alt="Logo Agence WebBot">
+          <img loading="lazy" decoding="async" src="photos/logo-w-96.png" alt="Logo Agence WebBot">
           <span>Agence WebBot — <a href="mailto:contact@agencewebbot.com" style="text-decoration:underline">contact@agencewebbot.com</a></span>
         </div>
         <div class="pied-droite">
