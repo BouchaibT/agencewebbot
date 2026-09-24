@@ -1,0 +1,21 @@
+{
+  "name": "Agence WebBot",
+  "short_name": "WebBot",
+  "description": "Assistant WhatsApp pour locations courte durée au Maroc",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#13233A",
+  "theme_color": "#13233A",
+  "icons": [
+    {
+      "src": "/favicon-aw-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-aw-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
