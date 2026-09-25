@@ -461,55 +461,37 @@
     <section class="section" id="simulateur">
       <div class="tete revele">
         <div>
-          <span class="surtitre">Simulateur de revenus · Marrakech</span>
-          <h2>Combien peut rapporter votre bien,<br><em>et combien d'arrivées cela représente</em></h2>
-          <p>Quatre informations suffisent. Le calcul s'affiche immédiatement, et chaque donnée utilisée est citée sous le résultat.</p>
+          <span class="surtitre">Calculateur de charge</span>
+          <h2>Combien d'heures par mois passez-vous<br><em>à répondre aux voyageurs ?</em></h2>
+          <p>Trois informations suffisent. Le calcul s'affiche immédiatement, et la règle utilisée est écrite sous le résultat.</p>
         </div>
       </div>
       <div class="sim-boite revele">
         <form class="sim-form" id="sim-form" onsubmit="return false">
           <label class="sim-champ">
-            <span>Type de logement</span>
-            <select id="sim-type">
-              <option value="appartement">Appartement</option>
-              <option value="riad">Riad</option>
-              <option value="villa">Villa avec piscine</option>
-              <option value="studio">Studio</option>
-            </select>
+            <span>Nombre de logements que vous gérez</span>
+            <input id="sim-logements" type="number" min="1" max="300" step="1" value="10" inputmode="numeric">
           </label>
           <label class="sim-champ">
-            <span>Nombre de chambres</span>
-            <select id="sim-chambres">
-              <option value="1">1 chambre</option>
-              <option value="2" selected>2 chambres</option>
-              <option value="3">3 chambres</option>
-              <option value="4">4 chambres et plus</option>
-            </select>
+            <span>Arrivées par mois et par logement</span>
+            <input id="sim-arrivees" type="number" min="1" max="25" step="1" value="6" inputmode="numeric">
           </label>
           <label class="sim-champ">
-            <span>Prix moyen que vous facturez par nuit, en dirhams</span>
-            <input id="sim-prix" type="number" min="100" max="30000" step="50" value="800" inputmode="numeric">
-          </label>
-          <label class="sim-champ">
-            <span>Période de fermeture annuelle</span>
-            <select id="sim-fermeture">
-              <option value="0" selected>Aucune, le bien reste ouvert</option>
-              <option value="30">Environ un mois</option>
-              <option value="60">Environ deux mois</option>
-            </select>
+            <span>Messages échangés par séjour</span>
+            <input id="sim-messages" type="number" min="2" max="40" step="1" value="8" inputmode="numeric">
           </label>
         </form>
         <div class="sim-resultat">
-          <span class="sim-etq">Revenus bruts estimés</span>
-          <div class="sim-grand" id="sim-total">146 400 DH<small>par an, avant charges et commission des plateformes</small></div>
+          <span class="sim-etq">Temps passé à répondre</span>
+          <div class="sim-grand" id="sim-total">8 h<small>par mois, uniquement à répondre aux voyageurs</small></div>
           <div class="sim-lignes">
-            <div class="sim-ligne"><span>Nuits louées dans l'année</span><b id="sim-nuits">183 nuits</b></div>
-            <div class="sim-ligne"><span>Arrivées à gérer</span><b id="sim-sejours">73 arrivées</b></div>
-            <div class="sim-ligne"><span>Fourchette selon la saison</span><b id="sim-fourchette">de 116 800 à 175 200 DH</b></div>
+            <div class="sim-ligne"><span>Arrivées à gérer chaque mois</span><b id="sim-ligne-arrivees">60 arrivées</b></div>
+            <div class="sim-ligne"><span>Messages de voyageurs</span><b id="sim-ligne-messages">480 messages</b></div>
+            <div class="sim-ligne"><span>Sur une année</span><b id="sim-ligne-an">96 heures par an</b></div>
           </div>
-          <a class="sim-cta" id="sim-lien" href="https://wa.me/33666133865">Recevoir mon analyse par WhatsApp</a>
-          <p class="sim-mention">Analyse écrite, sans engagement. Nous répondons nous-mêmes, il n'y a personne d'autre derrière.</p>
-          <p class="sim-src">Calcul indicatif pour Marrakech : taux d'occupation moyen de 50 % (mesures AirDNA publiées en 2026, séjour moyen de 2,5 nuits) et prix auquel vous facturez votre nuit, celui que vous venez de saisir. Le résultat réel dépend du quartier, de la saison et de la qualité des annonces.</p>
+          <a class="sim-cta" id="sim-lien" href="https://wa.me/33666133865">Voir comment l'assistant absorbe ça</a>
+          <p class="sim-mention">Analyse écrite, sans engagement. On vous répond en personne, pas par formulaire.</p>
+          <p class="sim-src">Règle de calcul : 6 arrivées par logement et par mois (occupation de 50 %, séjour moyen de 2,5 nuits) et 1 minute par message. Une arrivée couvre le départ, l'arrivée et les questions du séjour : code d'accès, wi-fi, horaires, adresse, équipement. Votre réalité dépend de vos logements et de vos voyageurs : modifiez les trois champs, le calcul suit.</p>
         </div>
       </div>
     </section>
@@ -659,47 +641,44 @@
 
 <script>
 (function(){
-  var prix = document.getElementById('sim-prix');
-  var fermeture = document.getElementById('sim-fermeture');
-  var typeEl = document.getElementById('sim-type');
-  var chambresEl = document.getElementById('sim-chambres');
-  var total = document.getElementById('sim-total');
-  var nuitsEl = document.getElementById('sim-nuits');
-  var sejoursEl = document.getElementById('sim-sejours');
-  var fourEl = document.getElementById('sim-fourchette');
+  var logEl = document.getElementById('sim-logements');
+  var arrEl = document.getElementById('sim-arrivees');
+  var msgEl = document.getElementById('sim-messages');
+  if (!logEl || !arrEl || !msgEl) return;
+  var totalEl = document.getElementById('sim-total');
+  var lArr = document.getElementById('sim-ligne-arrivees');
+  var lMsg = document.getElementById('sim-ligne-messages');
+  var lAn  = document.getElementById('sim-ligne-an');
   var lien = document.getElementById('sim-lien');
-  if(!prix || !total) return;
-
   var NUMERO = '33666133865';
-
-  function nb(n){
-    return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  function nb(n){ return n.toLocaleString('fr-FR'); }
+  function entier(el, mini, maxi){
+    var v = parseInt(el.value, 10);
+    if (isNaN(v) || v < mini) v = mini;
+    if (v > maxi) v = maxi;
+    return v;
   }
   function calcul(){
-    var p = parseFloat(prix.value) || 0;
-    var f = parseFloat(fermeture.value) || 0;
-    var dispo = 365 - f;
-    var nuits = Math.round(dispo * 0.5);
-    var rev = nuits * p;
-    var bas = Math.round(dispo * 0.4) * p;
-    var haut = Math.round(dispo * 0.6) * p;
-    var sejours = Math.max(1, Math.round(nuits / 2.5));
-    var plus = chambresEl.value === '4' ? '4 chambres ou plus' : chambresEl.value + ' chambre' + (chambresEl.value === '1' ? '' : 's');
-    total.innerHTML = nb(rev) + ' DH<small>par an, avant charges et commission des plateformes</small>';
-    nuitsEl.textContent = nb(nuits) + ' nuits';
-    sejoursEl.textContent = nb(sejours) + ' arrivées';
-    fourEl.textContent = 'de ' + nb(bas) + ' à ' + nb(haut) + ' DH';
-    var msg = 'Bonjour, j\'ai utilisé le simulateur de votre site. Mon bien à Marrakech : '
-      + typeEl.options[typeEl.selectedIndex].text.toLowerCase() + ', ' + plus
-      + ', facturé ' + nb(p) + ' DH la nuit. '
-      + 'Le simulateur estime ' + nb(rev) + ' DH de revenus annuels, '
-      + 'entre ' + nb(bas) + ' et ' + nb(haut) + ' DH selon la saison, '
-      + 'et ' + nb(sejours) + ' arrivées à gérer. '
-      + 'J\'aimerais recevoir l\'analyse.';
-    lien.href = 'https://wa.me/' + NUMERO + '?text=' + encodeURIComponent(msg);
+    var log = entier(logEl, 1, 300);
+    var arr = entier(arrEl, 1, 25);
+    var msg = entier(msgEl, 2, 40);
+    var arrivees = log * arr;
+    var messages = arrivees * msg;
+    var heures = Math.round(messages / 60);
+    var heuresAn = Math.round(heures * 12);
+    totalEl.innerHTML = nb(heures) + ' h<small>par mois, uniquement \u00e0 r\u00e9pondre aux voyageurs</small>';
+    lArr.textContent = nb(arrivees) + ' arriv\u00e9es';
+    lMsg.textContent = nb(messages) + ' messages';
+    lAn.textContent  = nb(heuresAn) + ' heures par an';
+    var texte = "Bonjour, j'ai utilis\u00e9 le calculateur de votre site. Je g\u00e8re "
+      + log + ' logement' + (log > 1 ? 's' : '')
+      + ", soit environ " + nb(arrivees) + " arriv\u00e9es et " + nb(messages)
+      + " messages de voyageurs par mois, donc environ " + nb(heures)
+      + " heures de r\u00e9ponses, dont une partie la nuit. J'aimerais savoir comment votre assistant absorbe \u00e7a.";
+    lien.href = 'https://wa.me/' + NUMERO + '?text=' + encodeURIComponent(texte);
   }
   ['change','input'].forEach(function(ev){
-    [prix, fermeture, typeEl, chambresEl].forEach(function(el){ el.addEventListener(ev, calcul); });
+    [logEl, arrEl, msgEl].forEach(function(el){ el.addEventListener(ev, calcul); });
   });
   calcul();
 })();
