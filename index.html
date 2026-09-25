@@ -509,7 +509,7 @@
           </div>
           <a class="sim-cta" id="sim-lien" href="https://wa.me/33666133865">Recevoir mon analyse par WhatsApp</a>
           <p class="sim-mention">Analyse écrite, sans engagement. Nous répondons nous-mêmes, il n'y a personne d'autre derrière.</p>
-          <p class="sim-src">Calcul indicatif pour Marrakech : occupation moyenne de 50 % et prix moyen de 135 dollars la nuit, mesures AirDNA publiées en 2026 ; séjour moyen de 2,5 nuits. Le résultat réel dépend du quartier, de la saison et de la qualité des annonces.</p>
+          <p class="sim-src">Calcul indicatif pour Marrakech : taux d'occupation moyen de 50 % (mesures AirDNA publiées en 2026, séjour moyen de 2,5 nuits) et prix auquel vous facturez votre nuit, celui que vous venez de saisir. Le résultat réel dépend du quartier, de la saison et de la qualité des annonces.</p>
         </div>
       </div>
     </section>
@@ -691,7 +691,11 @@
     fourEl.textContent = 'de ' + nb(bas) + ' à ' + nb(haut) + ' DH';
     var msg = 'Bonjour, j\'ai utilisé le simulateur de votre site. Mon bien à Marrakech : '
       + typeEl.options[typeEl.selectedIndex].text.toLowerCase() + ', ' + plus
-      + ', facturé ' + nb(p) + ' DH la nuit. J\'aimerais recevoir l\'analyse.';
+      + ', facturé ' + nb(p) + ' DH la nuit. '
+      + 'Le simulateur estime ' + nb(rev) + ' DH de revenus annuels, '
+      + 'entre ' + nb(bas) + ' et ' + nb(haut) + ' DH selon la saison, '
+      + 'et ' + nb(sejours) + ' arrivées à gérer. '
+      + 'J\'aimerais recevoir l\'analyse.';
     lien.href = 'https://wa.me/' + NUMERO + '?text=' + encodeURIComponent(msg);
   }
   ['change','input'].forEach(function(ev){
