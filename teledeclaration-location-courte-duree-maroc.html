@@ -47,6 +47,68 @@ a{color:var(--bleu);text-decoration:underline}
 footer{text-align:center;color:var(--gris);font-size:.85rem;padding:10px 22px 46px}
 @media(max-width:640px){article{padding:28px 20px 26px;border-radius:0;margin:18px 0}h1{font-size:1.4rem}h2{font-size:1.12rem}}
 </style>
+
+<!-- Donnees structurees : article + questions frequentes -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "La fiche de police : chaque voyageur doit être déclaré avant huit heures du matin",
+  "datePublished": "2026-09-23",
+  "author": {
+    "@type": "Organization",
+    "name": "Agence WebBot"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qui doit faire la télédéclaration, le propriétaire ou la conciergerie ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le texte vise l'exploitant de l'établissement d'hébergement. Un propriétaire qui délègue la gestion peut donc confier cette tâche, à condition que le contrat désigne clairement la personne responsable, et prévoie ce qui se passe en cas d'absence. Si rien n'est écrit, la responsabilité revient au propriétaire."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que se passe-t-il si un séjour n'est pas déclaré ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L'article 48 de la loi prévoit un emprisonnement d'un mois à six mois et une amende de 50 000 à 100 000 dirhams, ou l'une de ces deux peines seulement. En cas de récidive dans les cinq ans, les montants sont doublés."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Où trouver la fiche de police à remplir en PDF ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le modèle officiel du bulletin individuel d'hébergement figure à l'annexe n°1 du décret n°2-15-865 du 9 juin 2016, publié au Bulletin Officiel n°6488. C'est ce document qu'il faut utiliser : un modèle récupéré ailleurs sur internet peut ne plus correspondre au formulaire exigé, et une déclaration faite sur un document non conforme reste une déclaration non conforme. Le texte est consultable sur le site du ministère du Tourisme, de l'Artisanat et de l'Économie Sociale et Solidaire."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il encore tenir un registre papier ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non, la déclaration électronique remplace le registre et son dépôt auprès de la DGSN ou de la gendarmerie. En revanche, l'obligation d'archiver les bulletins individuels d'hébergement pendant un an subsiste, et son non-respect est visé par le même article 48."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Et si le système est en panne le jour où j'ai des clients ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La loi prévoit ce cas. Au-delà de 24 heures d'indisponibilité, vous déposez une copie des bulletins avant huit heures du matin, et vous transmettez le formulaire des nuitées non déclarées avant le troisième jour du mois suivant."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <header>
@@ -62,6 +124,7 @@ footer{text-align:center;color:var(--gris);font-size:.85rem;padding:10px 22px 46
       <img src="photos/chambre-bois-sculpte-teledeclaration.jpg" width="1400" height="1050" alt="Fiche de police Maroc : comment déclarer chaque voyageur d'une location courte durée">
     </figure>
 <p>Vous avez rempli le cahier, noté les noms, recopié le numéro du passeport. Le lendemain, vous recommencez. Sauf qu'au Maroc, cette petite routine n'est pas une bonne pratique : c'est une <strong>obligation légale</strong>, avec une heure limite fixée par décret, et une sanction qui va jusqu'à l'emprisonnement.</p>
+<p>Ce n'est d'ailleurs pas la seule pièce à avoir en règle : sans <a href="guide-licence-location-courte-duree-maroc.html">l'autorisation d'exploitation</a> ni <a href="assurance-location-courte-duree-maroc.html">l'assurance imposée par la loi</a>, un hébergement touristique reste en infraction, télédéclaration ou pas.</p>
 <p>Cette déclaration porte un nom que vous avez peut-être déjà entendu à l'arrivée d'un voyageur : la <strong>fiche de police</strong>. Son nom officiel dans les textes est <strong>bulletin individuel d'hébergement</strong>, et sa version électronique s'appelle la <strong>télédéclaration</strong>. Ce sont trois façons de désigner la même obligation, et c'est celle que tout hébergement touristique au Maroc doit remplir, y compris une location courte durée gérée par son propriétaire.</p>
 <p>C'est le point dont personne ne parle quand on prépare une location courte durée. On débat de la décoration, du prix de la nuitée, de la plateforme. On ne parle presque jamais de l'obligation qui tombe <strong>chaque jour</strong>, y compris le dimanche, y compris pour une seule nuit.</p>
 <h2>Ce que la loi impose à chaque séjour</h2>
@@ -82,7 +145,7 @@ footer{text-align:center;color:var(--gris);font-size:.85rem;padding:10px 22px 46
 <h2>Ce que la sanction prévue change dans une organisation</h2>
 <p>L'article 48 de la loi n°80-14 est explicite : est puni d'un emprisonnement d'un mois à six mois et d'une amende de 50 000 à 100 000 dirhams, ou de l'une de ces deux peines seulement, tout exploitant qui ne s'acquitte pas de l'une de ses obligations de déclaration et d'archivage prévues aux articles 36, 37 et 38.</p>
 <p>L'article 50 ajoute que, en cas de récidive dans les cinq ans, les sanctions sont portées au double.</p>
-<p>C'est précisément là que se pose la question de l'organisation. Quand un propriétaire confie son bien, il doit savoir qui, concrètement, fait la déclaration du jour, y compris le week-end, et ce qui se passe si la personne en charge est absente. Si le contrat ne le dit pas, la réponse par défaut reste le propriétaire, puisque c'est l'exploitant que le texte vise.</p>
+<p>C'est précisément là que se pose la question de l'organisation. Quand <a href="conciergerie-airbnb-proprietaire-maroc.html">un propriétaire confie son bien à une conciergerie</a>, il doit savoir qui, concrètement, fait la déclaration du jour, y compris le week-end, et ce qui se passe si la personne en charge est absente. Si le contrat ne le dit pas, la réponse par défaut reste le propriétaire, puisque c'est l'exploitant que le texte vise.</p>
 <p>Les textes cités ici sont publics. Ils sont accessibles depuis la page « Hébergement touristique » du ministère du Tourisme, de l'Artisanat et de l'Économie Sociale et Solidaire, à l'adresse https://mtaess.gov.ma/fr/tourisme/metiers-tourisme/hebergement-touristique/</p>
 <h2>Questions fréquentes</h2>
 <h3>Qui doit faire la télédéclaration, le propriétaire ou la conciergerie ?</h3>
