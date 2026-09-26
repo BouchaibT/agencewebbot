@@ -149,6 +149,13 @@
   .ic:hover{background:rgba(255,255,255,.12)}
   .mention{margin-top:24px; color:#A2967F; font-size:15px; border-top:1px solid rgba(255,255,255,.1); padding-top:20px}
 
+  /* ---------- FAQ accueil ---------- */
+  .faq-liste{display:flex; flex-direction:column}
+  .faq-item{padding:28px 0; border-bottom:1px solid var(--trait)}
+  .faq-item:first-child{border-top:1px solid var(--trait)}
+  .faq-item h3{font-size:19px; font-weight:700; color:var(--encre); margin-bottom:10px}
+  .faq-item p{color:var(--gris); font-size:16.5px; line-height:1.7}
+
   /* ---------- téléphone ---------- */
   @media (max-width:820px){
     .contenu{padding:0 20px}
@@ -286,6 +293,40 @@
     "name": "Maroc"
   },
   "sameAs": ["https://www.facebook.com/61594182764065"]
+}
+</script>
+
+<!-- Donnees structurees : questions frequentes -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Faut-il un nouveau numéro WhatsApp, ou ça s'installe sur celui que mes voyageurs ont déjà ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non, aucun nouveau numéro. L'assistant s'installe directement sur votre numéro WhatsApp existant — celui que vos voyageurs ont déjà dans leurs échanges. La mise en service comprend justement cette installation, le chargement des informations de vos logements et les tests, pour 2 500 DH une seule fois."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que se passe-t-il si un voyageur pose une question que l'assistant ne sait pas traiter, ou s'il est mécontent ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L'assistant s'arrête et vous transmet la conversation dès que ça sort du cadre que vous avez validé : une remise à accorder, un litige, une urgence technique (fuite, panne, sécurité), une réclamation insistante, ou une question sans réponse prévue à l'avance. Vous recevez un résumé clair, pas toute la conversation à relire, et vous gardez la main pour répondre vous-même."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien ça coûte réellement, par exemple pour 10 logements ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le tarif baisse par palier : 250 DH par logement et par mois de 1 à 5 logements, 200 DH de 6 à 20, 150 DH au-delà de 20 — plus 2 500 DH de mise en service, une seule fois. Pour 10 logements, ça donne 2 000 DH par mois (tranche 6-20), hors mise en service."
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -638,6 +679,31 @@
           </div>
         </a>
         
+      </div>
+    </section>
+  </div>
+
+  <div class="contenu">
+    <section class="section" id="faq">
+      <div class="tete revele">
+        <div>
+          <span class="surtitre">Questions fréquentes</span>
+          <h2>Ce que les propriétaires et gestionnaires<br><em>demandent avant de se lancer</em></h2>
+        </div>
+      </div>
+      <div class="faq-liste revele">
+        <div class="faq-item">
+          <h3>Faut-il un nouveau numéro WhatsApp, ou ça s'installe sur celui que mes voyageurs ont déjà ?</h3>
+          <p>Non, aucun nouveau numéro. L'assistant s'installe directement sur votre numéro WhatsApp existant — celui que vos voyageurs ont déjà dans leurs échanges. La mise en service comprend justement cette installation, le chargement des informations de vos logements et les tests, pour 2 500 DH une seule fois.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Que se passe-t-il si un voyageur pose une question que l'assistant ne sait pas traiter, ou s'il est mécontent ?</h3>
+          <p>L'assistant s'arrête et vous transmet la conversation dès que ça sort du cadre que vous avez validé : une remise à accorder, un litige, une urgence technique (fuite, panne, sécurité), une réclamation insistante, ou une question sans réponse prévue à l'avance. Vous recevez un résumé clair, pas toute la conversation à relire, et vous gardez la main pour répondre vous-même.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Combien ça coûte réellement, par exemple pour 10 logements ?</h3>
+          <p>Le tarif baisse par palier : 250 DH par logement et par mois de 1 à 5 logements, 200 DH de 6 à 20, 150 DH au-delà de 20 — plus 2 500 DH de mise en service, une seule fois. Pour 10 logements, ça donne 2 000 DH par mois (tranche 6-20), hors mise en service.</p>
+        </div>
       </div>
     </section>
   </div>
