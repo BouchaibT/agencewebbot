@@ -265,6 +265,8 @@
   .tarif-liste li{display:flex; gap:12px; font-size:15px; color:var(--gris); line-height:1.55}
   .tarif-liste li b{color:var(--encre); font-weight:600}
   .tarif-liste li::before{content:""; flex:0 0 7px; height:7px; margin-top:8px; border-radius:50%; background:var(--vert)}
+  .tarif-mention{font-size:16px; color:var(--gris); line-height:1.6}
+  .tarif-boutons{display:flex; align-items:center; gap:26px; flex-wrap:wrap; margin-top:4px}
   .tarif-note{font-size:12px; color:var(--gris2); line-height:1.6}
   @media (max-width:900px){ .tarif{grid-template-columns:1fr} .tarif-prix{font-size:42px} }
 
@@ -308,7 +310,7 @@
       "name": "Faut-il un nouveau numéro WhatsApp, ou ça s'installe sur celui que mes voyageurs ont déjà ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Non, aucun nouveau numéro. L'assistant s'installe directement sur votre numéro WhatsApp existant — celui que vos voyageurs ont déjà dans leurs échanges. La mise en service comprend justement cette installation, le chargement des informations de vos logements et les tests, pour 2 500 DH une seule fois."
+        "text": "Non, aucun nouveau numéro. L'assistant s'installe directement sur votre numéro WhatsApp existant — celui que vos voyageurs ont déjà dans leurs échanges. La mise en service comprend justement cette installation, le chargement des informations de vos logements et les tests. La mise en service est facturée une seule fois, sur devis."
       }
     },
     {
@@ -324,7 +326,7 @@
       "name": "Combien ça coûte réellement, par exemple pour 10 logements ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Le tarif baisse par palier : 250 DH par logement et par mois de 1 à 5 logements, 200 DH de 6 à 20, 150 DH au-delà de 20 — plus 2 500 DH de mise en service, une seule fois. Pour 10 logements, ça donne 2 000 DH par mois (tranche 6-20), hors mise en service."
+        "text": "Le tarif est dégressif selon le nombre de logements que l'assistant prend en charge. Écrivez-nous avec votre parc, nous vous dirons le montant exact."
       }
     }
   ]
@@ -586,7 +588,7 @@
       <div class="tete revele">
         <div>
           <span class="surtitre">Tarif</span>
-          <h2>Un prix par logement,<br><em>et il baisse quand votre parc grandit</em></h2>
+          <h2>Un prix simple,<br><em>adapté à votre parc</em></h2>
           <p>Pas de forfait opaque, pas de « nous consulter ». Le tarif se calcule sur le nombre de logements que l'assistant prend en charge.</p>
         </div>
       </div>
@@ -596,12 +598,11 @@
           <div class="tarif-prix">250 DH<small>par logement et par mois</small></div>
         </div>
         <div class="tarif-droite">
-          <ul class="tarif-liste">
-            <li><span>De 1 à 5 logements : <b>250 DH</b> par logement et par mois.</span></li>
-            <li><span>De 6 à 20 logements : <b>200 DH</b> par logement et par mois.</span></li>
-            <li><span>Au-delà de 20 logements : <b>150 DH</b> par logement et par mois.</span></li>
-            <li><span>Mise en service : <b>2 500 DH</b>, une seule fois — installation sur votre numéro, chargement des informations de vos logements, tests.</span></li>
-          </ul>
+          <p class="tarif-mention">À partir de 250 DH par logement et par mois. Tarif dégressif selon le nombre de logements.<br>Mise en service sur devis. Hors Maroc : tarif sur demande.</p>
+          <div class="tarif-boutons">
+            <a class="sim-cta" href="https://wa.me/33746554443" target="_blank" rel="noopener">Tester la démo</a>
+            <a class="lien" href="#contact">Demander mon tarif</a>
+          </div>
           <p class="tarif-note">Le montant exact dépend de ce que vous nous confiez et du volume de messages à traiter. Écrivez-nous, nous vous le dirons franchement.</p>
         </div>
       </div>
@@ -698,7 +699,7 @@
       <div class="faq-liste revele">
         <div class="faq-item">
           <h3>Faut-il un nouveau numéro WhatsApp, ou ça s'installe sur celui que mes voyageurs ont déjà ?</h3>
-          <p>Non, aucun nouveau numéro. L'assistant s'installe directement sur votre numéro WhatsApp existant — celui que vos voyageurs ont déjà dans leurs échanges. La mise en service comprend justement cette installation, le chargement des informations de vos logements et les tests, pour 2 500 DH une seule fois.</p>
+          <p>Non, aucun nouveau numéro. L'assistant s'installe directement sur votre numéro WhatsApp existant — celui que vos voyageurs ont déjà dans leurs échanges. La mise en service comprend justement cette installation, le chargement des informations de vos logements et les tests. La mise en service est facturée une seule fois, sur devis.</p>
         </div>
         <div class="faq-item">
           <h3>Que se passe-t-il si un voyageur pose une question que l'assistant ne sait pas traiter, ou s'il est mécontent ?</h3>
@@ -706,7 +707,7 @@
         </div>
         <div class="faq-item">
           <h3>Combien ça coûte réellement, par exemple pour 10 logements ?</h3>
-          <p>Le tarif baisse par palier : 250 DH par logement et par mois de 1 à 5 logements, 200 DH de 6 à 20, 150 DH au-delà de 20 — plus 2 500 DH de mise en service, une seule fois. Pour 10 logements, ça donne 2 000 DH par mois (tranche 6-20), hors mise en service.</p>
+          <p>Le tarif est dégressif selon le nombre de logements que l'assistant prend en charge. Écrivez-nous avec votre parc, nous vous dirons le montant exact.</p>
         </div>
       </div>
     </section>
@@ -740,7 +741,7 @@
           <a class="ic" href="https://www.facebook.com/61594182764065" target="_blank" rel="noopener" aria-label="Agence WebBot sur Facebook">FB</a>
         </div>
       </div>
-      <div class="mention">Notre tarif démarre à 250 DH par logement et par mois. Le montant exact dépend de votre parc : écrivez-nous et nous vous dirons franchement ce qui est possible.</div>
+      <div class="mention">À partir de 250 DH par logement et par mois. Tarif dégressif selon le nombre de logements.<br>Mise en service sur devis. Hors Maroc : tarif sur demande.</div>
       <div class="mention" style="margin-top:10px; font-size:11px; color:#8A8072">Images d'aperçu et de fond : arche de Legzira (Maroc). Aperçu : <a href="https://commons.wikimedia.org/wiki/File:Legzira_beach_near_Sidi_Ifni.jpg" target="_blank" rel="noopener" style="text-decoration:underline">Walter Rodriguez</a>, <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener" style="text-decoration:underline">CC BY 2.0</a>. Fond : <a href="https://commons.wikimedia.org/wiki/File:MA.GN.Sidi-Ifni_Legzira-Beach_Stone-Arch_756_16x9-R_5120x2880.jpg" target="_blank" rel="noopener" style="text-decoration:underline">Roy Egloff</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener" style="text-decoration:underline">CC BY-SA 4.0</a>. Images recadrées.</div>
     </div>
     <p><a href="/mentions-legales.html">Mentions légales</a> · <a href="/confidentialite.html">Confidentialité</a></p>
