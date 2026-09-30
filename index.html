@@ -204,28 +204,46 @@
 
   /* ---------- la conversation, le produit enfin visible ---------- */
   .conv{display:grid; grid-template-columns:.92fr 1.08fr; gap:52px; align-items:center}
-  .tel{background:#0B141A; border-radius:36px; padding:15px; box-shadow:0 60px 90px -46px rgba(20,16,10,.65);
-    max-width:420px; justify-self:end; width:100%}
-  .tel .ecran{background:#ECE5DD; border-radius:24px; overflow:hidden}
-  .tel .barre{background:#075E54; color:#fff; padding:14px 16px; display:flex; align-items:center; gap:11px}
+  .tel-bloc{position:relative; max-width:420px; width:100%; justify-self:end}
+  .tel{background:#0B141A; border-radius:36px; padding:15px; box-shadow:0 60px 90px -46px rgba(20,16,10,.65); height:879px}
+  .tel .ecran{background:#efeae2; border-radius:24px; overflow:hidden; height:100%; display:flex; flex-direction:column}
+  .tel .barre{background:#075e54; color:#fff; padding:14px 16px; display:flex; align-items:center; gap:11px; flex-shrink:0}
   .tel .barre .rond{width:38px; height:38px; border-radius:50%; background:#25D366; display:flex;
-    align-items:center; justify-content:center; font-weight:700; font-size:14px; flex-shrink:0}
+    align-items:center; justify-content:center; font-weight:700; font-size:17px; flex-shrink:0}
   .tel .barre b{font-size:15.5px; display:block; line-height:1.2}
   .tel .barre i{font-style:normal; font-size:12.5px; opacity:.82}
-  .fil{padding:16px 14px 20px; display:flex; flex-direction:column; gap:11px}
-  .msg{max-width:84%; padding:11px 14px; border-radius:15px; font-size:14.5px; line-height:1.5; color:#111B21}
-  .msg.eux{align-self:flex-start; background:#fff; border-top-left-radius:4px}
-  .msg.lui{align-self:flex-end; background:#DCF8C6; border-top-right-radius:4px}
-  .msg .h{display:block; font-size:10.5px; color:#667781; text-align:right; margin-top:6px}
-  .fil .jour{align-self:center; background:rgba(255,255,255,.75); color:#54656F; font-size:11.5px;
-    padding:6px 14px; border-radius:9px; font-weight:600}
+  .fil{position:relative; flex:1; overflow:hidden}
+  .fil-in{position:absolute; left:0; right:0; top:0; padding:16px 14px 18px; display:flex; flex-direction:column; gap:11px; transition:transform .3s ease}
+  .msg{max-width:84%; padding:9px 12px 7px; border-radius:12px; font-size:14.5px; line-height:1.45; color:#111;
+    overflow-wrap:anywhere; box-shadow:0 1px .5px rgba(11,20,26,.13); animation:tel-in .3s ease both}
+  .msg.atlas{align-self:flex-start; background:#fff; border-top-left-radius:4px}
+  .msg.voy{align-self:flex-end; background:#d9fdd3; border-top-right-radius:4px}
+  .msg .h{display:block; font-size:10.5px; color:#667781; text-align:right; margin-top:3px}
+  .msg.lieu{width:84%; max-width:250px; padding:5px 5px 9px}
+  .msg.lieu .plan{display:flex; align-items:center; justify-content:center; height:96px; border-radius:9px; background:#d5efdc}
+  .msg.lieu .plan svg{width:30px; height:30px; fill:#0E7A5F}
+  .msg.lieu .nom{display:block; padding:8px 7px 0; font-weight:600}
+  .msg.frappe{display:flex; gap:5px; padding:13px 14px}
+  .msg.frappe span{width:7px; height:7px; border-radius:50%; background:#8696a0; animation:tel-pt 1.1s infinite}
+  .msg.frappe span:nth-child(2){animation-delay:.18s}
+  .msg.frappe span:nth-child(3){animation-delay:.36s}
+  .fil .jour{align-self:center; background:#e1f2fb; color:#54656F; font-size:11.5px;
+    padding:6px 14px; border-radius:9px; font-weight:600; animation:tel-in .3s ease both}
+  .tel-note{position:absolute; top:100%; left:0; right:0; margin-top:10px; text-align:center; font-size:12.5px; color:#7A7060}
+  .tel-sr{position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap}
+  @keyframes tel-in{from{opacity:0; transform:translateY(8px)}}
+  @keyframes tel-pt{0%,60%,100%{opacity:.35} 30%{opacity:1}}
+  @media (prefers-reduced-motion:reduce){
+    .msg,.fil .jour,.msg.frappe span{animation:none}
+    .fil-in{transition:none}
+  }
   .conv-txt .bloc{border-left:3px solid var(--trait); padding-left:20px; margin-bottom:26px}
   .conv-txt .bloc b{font-family:'Fraunces',Georgia,serif; font-size:21px; display:block; margin-bottom:7px}
   .conv-txt .bloc p{color:var(--gris); font-size:16.5px; line-height:1.65}
-  .conv-leger{color:var(--gris2); font-size:14px; margin-top:22px; line-height:1.6}
   @media (max-width:820px){
     .conv{grid-template-columns:1fr; gap:34px}
-    .tel{justify-self:center}
+    .tel-bloc{justify-self:center}
+    .tel{height:600px}
     .tete h2{font-size:31px}
   }
 
@@ -386,28 +404,27 @@
     <section class="section" id="conversation">
       <div class="tete revele">
         <div>
-          <span class="surtitre">Deux heures du matin, un vol en retard</span>
+          <span class="surtitre">Minuit et demi, un taxi, une adresse introuvable</span>
           <h2>Vos voyageurs écrivent la nuit.<br><em>Vous, vous dormez.</em></h2>
           <p>Ce n'est pas une promesse : c'est le genre de conversation qui part toute seule, pendant que vous êtes couché. Vous la relisez le lendemain matin.</p>
         </div>
       </div>
       <div class="conv revele">
-        <div class="tel">
-          <div class="ecran">
-            <div class="barre">
-              <div class="rond">AW</div>
-              <div><b>Conciergerie — Appartement Guéliz</b><i>Assistant virtuel · 24 h/24</i></div>
-            </div>
-            <div class="fil">
-              <span class="jour">Aujourd'hui</span>
-              <div class="msg eux">Bonjour, notre vol est retardé. On atterrit vers 2 h 40, on sera au logement vers 3 h 30. C'est possible ?<span class="h">02:08</span></div>
-              <div class="msg lui">Bonjour ! Aucun souci. Je préviens l'équipe : quelqu'un vous attendra à votre arrivée.<span class="h">02:08</span></div>
-              <div class="msg lui">Youssef sera devant l'immeuble, il a votre nom et vous remettra les clés. Il vous appellera si vous ne le trouvez pas.<span class="h">02:09</span></div>
-              <div class="msg eux">Parfait, merci beaucoup. Et le chauffage marche à cette heure ?<span class="h">02:11</span></div>
-              <div class="msg lui">Oui. Le thermostat est sur le mur du salon, il est déjà réglé. Si vous avez froid en arrivant, montez-le de deux degrés, ça chauffe en quelques minutes.<span class="h">02:11</span></div>
-              <div class="msg eux">Génial. Bonne nuit !<span class="h">02:12</span></div>
+        <div class="tel-bloc">
+          <div class="tel-sr">
+            <h3>Exemple de conversation entre une voyageuse et Atlas, l'assistant WhatsApp de la conciergerie.</h3>
+            <div id="tel-texte"></div>
+          </div>
+          <div class="tel" id="tel-demo" aria-hidden="true">
+            <div class="ecran">
+              <div class="barre">
+                <div class="rond">A</div>
+                <div><b>Conciergerie · Atlas</b><i id="tel-etat">en ligne</i></div>
+              </div>
+              <div class="fil" id="tel-fil"><div class="fil-in" id="tel-zone"></div></div>
             </div>
           </div>
+          <p class="tel-note">Exemple de conversation</p>
         </div>
         <div class="conv-txt">
           <div class="bloc">
@@ -423,7 +440,6 @@
             <p>Chaque échange reste visible. Vous pouvez reprendre la conversation d'un seul message, à tout moment, sans que le voyageur s'en aperçoive.</p>
           </div>
           <a class="lien" href="#contact">Montrez-nous vos propres messages</a>
-          <p class="conv-leger">Exemple de conversation, monté à partir des questions qui reviennent le plus souvent dans les locations courte durée au Maroc.</p>
         </div>
       </div>
     </section>
@@ -844,6 +860,131 @@
     [prixEl, tauxEl].forEach(function(el){ el.addEventListener(ev, calcul); });
   });
   calcul();
+})();
+</script>
+<script>
+/* Conversation animée du téléphone : pour changer le texte, modifier uniquement la liste SCENARIO. */
+(function(){
+  var tel = document.getElementById('tel-demo');
+  var fil = document.getElementById('tel-fil');
+  var zone = document.getElementById('tel-zone');
+  var etat = document.getElementById('tel-etat');
+  var texte = document.getElementById('tel-texte');
+  if (!tel || !fil || !zone) return;
+
+  // t : sep (séparateur de date), voy (voyageuse), atlas, lieu (carte de position)
+  var SCENARIO = [
+    {t:'sep',   x:"Aujourd'hui"},
+    {t:'voy',   h:'00:30', x:"Bonjour, je suis perdue : le taxi m'a déposée mais je ne trouve pas l'immeuble."},
+    {t:'atlas', h:'00:30', x:"Bonjour, je suis Atlas, l'assistant virtuel de la conciergerie. Pas de souci : c'est la porte en bois juste à côté de la pharmacie."},
+    {t:'voy',   h:'00:44', x:"C'est bon, on est dedans ! Par contre je ne trouve pas le code du wifi."},
+    {t:'atlas', h:'00:44', x:"Le réseau s'appelle « Atlas-Gueliz » et le mot de passe est : Marrakech2026. La box est dans le salon, sous la télévision."},
+    {t:'sep',   x:"Le lendemain"},
+    {t:'voy',   h:'08:12', x:"Bonjour ! Il y a une boulangerie tout près pour le petit déjeuner ?"},
+    {t:'atlas', h:'08:12', x:"Oui, il y a une boulangerie à 2 minutes à pied, en sortant à gauche. Le supermarché du quartier vend aussi du pain frais."},
+    {t:'voy',   h:'13:05', x:"Qu'est-ce qu'on peut visiter cet après-midi ?"},
+    {t:'atlas', h:'13:05', x:"La médina est tout près, par Bab Doukkala. Vous pouvez aussi aller voir le Jardin Majorelle, à une quinzaine de minutes à pied."},
+    {t:'voy',   h:'19:20', x:"Et un restaurant dans le coin pour ce soir ?"},
+    {t:'atlas', h:'19:20', x:"Il y a plusieurs restaurants à moins de 5 minutes à pied, sur l'avenue principale. Pensez à vérifier leurs horaires avant d'y aller."},
+    {t:'voy',   h:'19:34', x:"Comment je peux joindre la conciergerie ?"},
+    {t:'atlas', h:'19:34', x:"Bien sûr, je leur envoie un message et ils vous rappellent dès que possible."}
+  ];
+  // durées en millisecondes
+  var PAUSE = {voy:1300, atlas:1500, lieu:900, sep:800, frappe:1100, fin:3000};
+
+  function el(balise, classe, contenu){
+    var e = document.createElement(balise);
+    if (classe) e.className = classe;
+    if (contenu) e.textContent = contenu;
+    return e;
+  }
+  function bulle(m){
+    if (m.t === 'sep') return el('span', 'jour', m.x);
+    if (m.t === 'lieu') {
+      var c = el('div', 'msg atlas lieu'), plan = el('div', 'plan');
+      var ns = 'http://www.w3.org/2000/svg', svg = document.createElementNS(ns, 'svg'), trace = document.createElementNS(ns, 'path');
+      svg.setAttribute('viewBox', '0 0 24 24');
+      trace.setAttribute('d', 'M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z');
+      svg.appendChild(trace); plan.appendChild(svg); c.appendChild(plan);
+      c.appendChild(el('span', 'nom', m.x));
+      return c;
+    }
+    // espace insécable avant ? ! : ; » et après « pour ne pas laisser le signe seul à la ligne
+    var b = el('div', 'msg ' + m.t, m.x.replace(/ ([?!:;»])/g, '\u00a0$1').replace(/« /g, '«\u00a0'));
+    b.appendChild(el('span', 'h', m.h));
+    return b;
+  }
+  // fait glisser les messages les plus anciens hors de l'écran, par le haut
+  function caler(){
+    var trop = zone.offsetHeight - fil.clientHeight;
+    zone.style.transform = trop > 0 ? 'translateY(-' + trop + 'px)' : 'none';
+  }
+  function poser(e){ zone.appendChild(e); caler(); }
+  function vider(){ zone.textContent = ''; zone.style.transform = 'none'; }
+
+  // version texte complète, pour les lecteurs d'écran (le téléphone animé leur est masqué)
+  if (texte) SCENARIO.forEach(function(m){
+    var qui = m.t === 'voy' ? 'Voyageuse, ' + m.h + ' : ' : m.t === 'atlas' ? 'Atlas, ' + m.h + ' : ' : m.t === 'lieu' ? 'Atlas envoie une position : ' : '';
+    texte.appendChild(el('p', '', qui + m.x));
+  });
+
+  // animations désactivées : les derniers messages qui tiennent dans l'écran, immobiles
+  function figer(){
+    vider();
+    SCENARIO.forEach(function(m){ zone.appendChild(bulle(m)); });
+    while (zone.children.length > 1 && zone.offsetHeight > fil.clientHeight) zone.removeChild(zone.firstChild);
+  }
+  var calme = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // les hauteurs changent quand les polices finissent de charger : on recale à ce moment-là
+  function quandPret(f){
+    window.addEventListener('resize', f);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(f);
+  }
+  if (calme) { figer(); quandPret(figer); return; }
+
+  var frappe = null;
+  function ecrit(oui){
+    if (frappe) { zone.removeChild(frappe); frappe = null; }
+    if (oui) {
+      frappe = el('div', 'msg atlas frappe');
+      for (var i = 0; i < 3; i++) frappe.appendChild(el('span'));
+      poser(frappe);
+    }
+    etat.textContent = oui ? "en train d'écrire…" : 'en ligne';
+  }
+  var etapes = [];
+  SCENARIO.forEach(function(m){
+    if (m.t === 'atlas') {
+      etapes.push({f:function(){ ecrit(true); }, d:PAUSE.frappe});
+      etapes.push({f:function(){ ecrit(false); poser(bulle(m)); }, d:PAUSE.atlas});
+    } else {
+      etapes.push({f:function(){ poser(bulle(m)); }, d:PAUSE[m.t]});
+    }
+  });
+  etapes[etapes.length - 1].d = PAUSE.fin;
+
+  var k = 0, minuteur = null, visible = false;
+  function pas(){
+    minuteur = null;
+    if (!visible) return;
+    if (k >= etapes.length) { vider(); k = 0; }
+    var e = etapes[k++];
+    e.f();
+    minuteur = setTimeout(pas, e.d);
+  }
+  function voir(oui){
+    visible = oui;
+    if (oui && !minuteur) minuteur = setTimeout(pas, 300);
+    if (!oui && minuteur) { clearTimeout(minuteur); minuteur = null; }
+  }
+  quandPret(caler);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(entrees){
+      voir(entrees[entrees.length - 1].isIntersecting);
+    }, {threshold:0.3}).observe(tel);
+  } else {
+    voir(true);
+  }
 })();
 </script>
 </body>
