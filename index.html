@@ -94,7 +94,8 @@
   .tete{display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:46px; gap:40px}
   .tete h2{font-size:50px; line-height:1.1}
   .tete p{color:#5B5044; font-size:18.5px; margin-top:18px; max-width:580px; line-height:1.68}
-  .lien{color:var(--bleu); font-weight:600; font-size:16px; border-bottom:2px solid var(--bleu); padding-bottom:4px; white-space:nowrap; cursor:pointer}
+  .lien{color:var(--encre); font-weight:600; font-size:16px; border-bottom:2px solid var(--terre); padding-bottom:4px; white-space:nowrap; cursor:pointer}
+  .lien:hover{color:var(--terre)}
 
   .deux{display:grid; grid-template-columns:1fr 1fr; gap:26px}
   .boite{border-radius:24px; padding:42px 40px; border:1px solid var(--trait); background:#fff}
@@ -250,8 +251,8 @@
   }
 
   /* ---------- bouton vert (bloc tarif) ---------- */
-  .sim-cta{display:inline-flex; align-items:center; justify-content:center; background:var(--vert); color:#fff; font-weight:600; font-size:15px; padding:16px 26px; border-radius:999px; text-align:center; line-height:1.35}
-  .sim-cta:hover{background:#0B6349}
+  .sim-cta{display:inline-flex; align-items:center; justify-content:center; background:var(--noir); color:#fff; font-weight:600; font-size:15px; padding:16px 26px; border-radius:999px; text-align:center; line-height:1.35}
+  .sim-cta:hover{background:var(--terre)}
 
   /* ---------- tarif ---------- */
   .tarif{display:grid; grid-template-columns:1.1fr 1fr; gap:0; border:1px solid var(--trait); border-radius:14px; overflow:hidden; background:var(--blanc)}
@@ -263,7 +264,7 @@
   .tarif-liste{display:flex; flex-direction:column; gap:14px; list-style:none}
   .tarif-liste li{display:flex; gap:12px; font-size:15px; color:var(--gris); line-height:1.55}
   .tarif-liste li b{color:var(--encre); font-weight:600}
-  .tarif-liste li::before{content:""; flex:0 0 7px; height:7px; margin-top:8px; border-radius:50%; background:var(--vert)}
+  .tarif-liste li::before{content:""; flex:0 0 7px; height:7px; margin-top:8px; border-radius:50%; background:var(--terre)}
   .tarif-mention{font-size:16px; color:var(--gris); line-height:1.6}
   .tarif-boutons{display:flex; align-items:center; gap:26px; flex-wrap:wrap; margin-top:4px}
   .tarif-note{font-size:12px; color:var(--gris2); line-height:1.6}
@@ -517,7 +518,7 @@
           <div class="tarif-prix">250 DH<small>par logement et par mois</small></div>
         </div>
         <div class="tarif-droite">
-          <p class="tarif-mention">À partir de 250 DH par logement et par mois. Tarif dégressif selon le nombre de logements.<br>Mise en service sur devis. Hors Maroc : tarif sur demande.</p>
+          <p class="tarif-mention">Tarif dégressif selon le nombre de logements.<br>Mise en service sur devis. Hors Maroc : tarif sur demande.</p>
           <div class="tarif-boutons">
             <a class="sim-cta" href="https://wa.me/33746554443" target="_blank" rel="noopener">Tester la démo</a>
             <a class="lien" href="#contact">Demander mon tarif</a>
