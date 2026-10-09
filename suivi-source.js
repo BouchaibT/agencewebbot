@@ -53,7 +53,7 @@
   var page = location.pathname.replace(/^\/|\.html$/g, '') || 'accueil';
   if (page === 'index') page = 'accueil';
   var ref = '(réf. ' + (source || 'site') + (campagne ? ' ' + campagne : '') + ' · ' + page + ')';
-  var DEFAUT = 'Bonjour, je voudrais tester l\'assistant.';
+  var DEFAUT = 'TEST — Bonjour, je voudrais tester l\'assistant.';
 
   var liens = document.querySelectorAll('a[href*="wa.me/"]');
   for (var j = 0; j < liens.length; j++) {
