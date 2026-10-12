@@ -858,6 +858,13 @@
   etapes[etapes.length - 1].d = PAUSE.fin;
 
   var k = 0, minuteur = null, visible = false;
+  // le téléphone n'est jamais vide : les premiers messages sont déjà là, l'animation reprend après
+  var DEJA_AFFICHES = 4;
+  SCENARIO.slice(0, DEJA_AFFICHES).forEach(function(m){
+    zone.appendChild(bulle(m));
+    k += m.t === 'atlas' ? 2 : 1;
+  });
+  caler();
   function pas(){
     minuteur = null;
     if (!visible) return;
