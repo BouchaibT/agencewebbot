@@ -740,7 +740,7 @@
   if ('IntersectionObserver' in window) {
     const obs = new IntersectionObserver((entrees) => {
       entrees.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vu'); obs.unobserve(e.target); } });
-    }, { threshold: 0.15 });
+    }, { threshold: 0, rootMargin: '0px 0px -10% 0px' }); /* seuil 0 : la grille des guides (6 800 px sur mobile) n'atteint jamais 15 % de l'écran */
     cibles.forEach(c => obs.observe(c));
   } else {
     cibles.forEach(c => c.classList.add('vu'));
