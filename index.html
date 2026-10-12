@@ -285,6 +285,13 @@
   .tarif-mention b{color:var(--encre); font-weight:600}
   @media (max-width:900px){ .tarif{grid-template-columns:1fr} .tarif-prix{font-size:42px} }
 
+  /* ---------- fondateur ---------- */
+  .fondateur{display:grid; grid-template-columns:96px 1fr; gap:30px; align-items:start; max-width:820px; padding:34px; border:1px solid var(--trait); border-radius:14px; background:var(--blanc)}
+  .fondateur-initiales{width:96px; height:96px; border-radius:50%; background:var(--noir); color:#C9A227; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',Georgia,serif; font-size:34px; font-weight:600}
+  .fondateur h2{font-size:34px; line-height:1.15}
+  .fondateur p{color:var(--gris); font-size:17px; line-height:1.7; margin-top:14px}
+  @media (max-width:600px){ .fondateur{grid-template-columns:1fr; gap:20px; padding:26px 22px} .fondateur-initiales{width:72px; height:72px; font-size:26px} .fondateur h2{font-size:27px} }
+
   /* ---------- bouton WhatsApp flottant ---------- */
   .wa-flottant{position:fixed; right:22px; bottom:22px; z-index:60; width:58px; height:58px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(0,0,0,.24); transition:transform .25s ease}
   .wa-flottant:hover{transform:scale(1.07)}
@@ -550,6 +557,16 @@
             <a class="sim-cta" href="https://wa.me/33746554443?text=TEST%20%E2%80%94%20Bonjour%2C%20je%20voudrais%20tester%20l%27assistant." target="_blank" rel="noopener">Tester la démo</a>
             <a class="lien" href="#contact">Demander mon tarif</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fondateur">
+      <div class="fondateur revele">
+        <div class="fondateur-initiales" aria-hidden="true">BH</div>
+        <div>
+          <h2>Qui est derrière Agence WebBot ?</h2>
+          <p>Je m'appelle Bouchaib Hachmi. Marocain, arrivé en France en 1977, j'ai grandi à Poitiers et je vis en Île-de-France depuis près de trente ans. Je rentre aujourd'hui m'installer au Maroc. Je connais les deux côtés : les voyageurs européens qui réservent, et les propriétaires marocains qui les accueillent. Le projet a démarré en France, d'où mon numéro en +33 pour l'instant.</p>
         </div>
       </div>
     </section>
