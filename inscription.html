@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connecter votre WhatsApp à Atlas — Agence WebBot</title>
+  <meta name="description" content="Inscription client : connectez le numéro WhatsApp Business de votre conciergerie à l'assistant Atlas.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-star-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-star-16.png">
+<link rel="icon" href="/favicon-star.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-star-180.png">
+<link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root{--bleu:#0a5c8a;--bleu-d:#074463;--bleu-pale:#eaf3f8;--texte:#1a2734;--gris:#6b7a89;--bord:#dce5ec;--vert:#1f8a4c;--rouge:#b3261e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',sans-serif;color:var(--texte);background:linear-gradient(135deg,#eaf3f8,#f7fafc);line-height:1.7}
+.wrap{max-width:820px;margin:0 auto;padding:0 22px}
+header{background:linear-gradient(135deg,var(--bleu),var(--bleu-d));color:#fff;padding:26px 0}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+header a{color:#fff;text-decoration:none;font-weight:600;font-size:.98rem}
+header .retour{font-weight:400;font-size:.88rem;opacity:.9;border:1px solid rgba(255,255,255,.45);padding:8px 14px;border-radius:999px}
+article{background:#fff;border-radius:18px;box-shadow:0 12px 50px rgba(10,92,138,.12);margin:34px auto;padding:44px 46px 40px}
+h1{font-size:1.66rem;line-height:1.3;font-weight:700;color:var(--bleu-d);margin-bottom:18px}
+h2{font-size:1.18rem;font-weight:600;color:var(--bleu-d);margin:32px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--bleu-pale)}
+p{margin:0 0 14px}
+ul{margin:0 0 16px 22px;padding-left:8px}
+li{margin-bottom:8px}
+strong{color:var(--bleu-d);font-weight:600}
+a{color:var(--bleu)}
+.encadre{background:#fff8ec;border-left:4px solid #e0a800;border-radius:10px;padding:14px 18px;margin:20px 0;font-size:.92rem;color:#5c4a12}
+form{display:grid;gap:14px;margin-top:6px}
+label{font-weight:500;font-size:.93rem;display:grid;gap:5px}
+label small{font-weight:400;color:var(--gris)}
+input,select{font:inherit;padding:11px 13px;border:1px solid var(--bord);border-radius:10px;width:100%}
+input:focus,select:focus{outline:2px solid var(--bleu);border-color:var(--bleu)}
+.coche{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.9rem}
+.coche input{width:auto;margin-top:5px}
+button{font:inherit;font-weight:600;background:#1877f2;color:#fff;border:0;border-radius:12px;padding:14px 20px;cursor:pointer;font-size:1rem}
+button:disabled{background:#9db6d4;cursor:not-allowed}
+ol.etapes{list-style:none;margin:22px 0 0;padding:0}
+ol.etapes li{padding:8px 0 8px 32px;position:relative;color:var(--gris)}
+ol.etapes li::before{content:"○";position:absolute;left:6px;top:7px}
+ol.etapes li.encours{color:var(--texte);font-weight:500}
+ol.etapes li.encours::before{content:"◔";color:var(--bleu)}
+ol.etapes li.fait{color:var(--vert)}
+ol.etapes li.fait::before{content:"✓"}
+ol.etapes li.erreur{color:var(--rouge)}
+ol.etapes li.erreur::before{content:"✕"}
+#message{margin-top:16px;padding:14px 18px;border-radius:10px;display:none}
+#message.ok{display:block;background:#e9f6ee;color:#14532d}
+#message.ko{display:block;background:#fdecea;color:#7a1c16}
+#message.info{display:block;background:var(--bleu-pale);color:var(--bleu-d)}
+footer{text-align:center;color:var(--gris);font-size:.85rem;padding:10px 22px 46px}
+footer a{color:var(--gris)}
+@media(max-width:640px){article{padding:28px 20px 26px;border-radius:0;margin:18px 0}h1{font-size:1.36rem}h2{font-size:1.1rem}}
+</style>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.facebook.com https://*.fbcdn.net; connect-src 'self' https://n8n.agencewebbot.com https://*.facebook.com; frame-src https://*.facebook.com; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a href="/">Agence WebBot</a>
+    <a class="retour" href="/">Retour au site</a>
+  </div>
+</header>
+<div class="wrap">
+  <article>
+<h1>Connecter votre WhatsApp Business à Atlas</h1>
+
+<p>Cette page relie le numéro WhatsApp de votre conciergerie à Atlas, l'assistant qui répond à vos
+voyageurs. La connexion se fait dans une fenêtre officielle de Meta (Facebook) : vous gardez la main
+sur votre compte, et vous pouvez retirer l'accès à tout moment.</p>
+
+<h2>Ce que vous allez connecter</h2>
+<ul>
+  <li><strong>Votre compte Meta Business</strong> (ou un nouveau, créé dans la fenêtre Meta).</li>
+  <li><strong>Un compte WhatsApp Business</strong> à votre nom, avec le nom affiché de votre conciergerie.</li>
+  <li><strong>Un numéro de téléphone</strong> qui recevra un code de vérification par SMS ou appel.
+  Ce numéro ne doit pas être utilisé en même temps dans l'application WhatsApp classique.</li>
+</ul>
+
+<h2>Qui paie quoi</h2>
+<p>Les réponses d'Atlas à vos voyageurs, dans les 24 heures qui suivent leur message, sont gratuites
+chez Meta. Les messages envoyés en dehors de cette fenêtre sont facturés <strong>directement par Meta,
+sur votre compte</strong> : il faudra y ajouter un moyen de paiement dans WhatsApp Manager.
+L'abonnement Atlas est facturé à part, par Agence WebBot.</p>
+
+<h2>Ce que nous enregistrons</h2>
+<ul>
+  <li>Les identifiants de votre compte WhatsApp Business et de votre numéro.</li>
+  <li>Une clé d'accès délivrée par Meta, <strong>chiffrée</strong> et utilisée uniquement pour envoyer
+  les réponses d'Atlas. Personne ne la voit, pas même nos outils d'automatisation.</li>
+  <li>Le nom de votre conciergerie, votre prénom, votre courriel et le numéro qui recevra les alertes.</li>
+</ul>
+<p>Détails : <a href="/confidentialite.html">politique de confidentialité</a> ·
+<a href="/suppression-donnees.html">supprimer vos données</a> · <a href="/cgu.html">conditions</a>.</p>
+
+<div class="encadre" id="preparation" hidden>Cette page est en préparation : la connexion n'est pas
+encore ouverte. Écrivez-nous à <a href="mailto:contact@agencewebbot.com">contact@agencewebbot.com</a>.</div>
+
+<h2>Vos informations</h2>
+<form id="formulaire" novalidate>
+  <label>Nom de votre conciergerie ou de votre logement
+    <input name="nom" required minlength="2" maxlength="80" autocomplete="organization"></label>
+  <label>Votre prénom
+    <input name="prenom" maxlength="60" autocomplete="given-name"></label>
+  <label>Votre courriel
+    <input name="email" type="email" required maxlength="120" autocomplete="email"></label>
+  <label>Numéro WhatsApp qui recevra les alertes d'Atlas
+    <small>Votre numéro personnel ou celui de votre équipe, au format international (ex. +212 6 12 34 56 78).
+    Il doit être différent du numéro que vous allez connecter.</small>
+    <input name="numero_alerte" type="tel" required maxlength="22" autocomplete="tel"></label>
+  <label>Langue des alertes
+    <select name="langue">
+      <option value="fr">Français</option><option value="ar">العربية</option><option value="en">English</option>
+      <option value="es">Español</option><option value="de">Deutsch</option><option value="nl">Nederlands</option>
+      <option value="it">Italiano</option>
+    </select></label>
+  <label class="coche"><input type="checkbox" name="consentement" required>
+    <span>J'accepte les <a href="/cgu.html" target="_blank" rel="noopener">conditions</a> et la
+    <a href="/confidentialite.html" target="_blank" rel="noopener">politique de confidentialité</a>.</span></label>
+  <button type="submit" id="bouton" disabled>Connecter mon WhatsApp Business</button>
+</form>
+
+<ol class="etapes" id="etapes">
+  <li data-e="meta">Connexion à Meta et choix du numéro</li>
+  <li data-e="envoi">Envoi sécurisé à Agence WebBot</li>
+  <li data-e="fin">Activation du numéro pour Atlas</li>
+</ol>
+<div id="message" role="status" aria-live="polite"></div>
+  </article>
+</div>
+<footer><a href="/mentions-legales.html">Mentions légales</a> · <a href="/confidentialite.html">Confidentialité</a></footer>
+
+<script>
+(function () {
+  "use strict";
+  var APP_ID = "1641630554288071";
+  var CONFIG_ID = "2254699458723270";            // configuration « Facebook Login for Business » (Embedded Signup v4)
+  var API = "https://n8n.agencewebbot.com/inscription";
+  var GRAPH_SDK = "v25.0";
+
+  var form = document.getElementById("formulaire"), bouton = document.getElementById("bouton");
+  var boite = document.getElementById("message");
+  var state = null, sdkPret = false, session = null, code = null, envoye = false;
+  var pret = CONFIG_ID !== "A_REMPLIR";
+
+  function msg(type, texte) { boite.className = type; boite.textContent = texte; }
+  function etape(nom, etat) {
+    var li = document.querySelector('#etapes li[data-e="' + nom + '"]');
+    if (li) li.className = etat;
+  }
+  function majBouton() { bouton.disabled = !(pret && sdkPret && state && form.checkValidity()) || envoye; }
+
+  if (!pret) document.getElementById("preparation").hidden = false;
+
+  // 1. Jeton de session anti-rejeu (usage unique, 15 min)
+  fetch(API + "/debut", { credentials: "omit" })
+    .then(function (r) { return r.json(); })
+    .then(function (d) { state = d.state || null; if (!state) msg("ko", d.erreur || "Service indisponible."); majBouton(); })
+    .catch(function () { msg("ko", "Le service d'inscription ne répond pas. Réessayez dans quelques minutes."); });
+
+  // 2. SDK Meta
+  window.fbAsyncInit = function () {
+    FB.init({ appId: APP_ID, autoLogAppEvents: true, xfbml: false, version: GRAPH_SDK });
+    sdkPret = true; majBouton();
+  };
+  var s = document.createElement("script");
+  s.async = true; s.defer = true; s.crossOrigin = "anonymous";
+  s.src = "https://connect.facebook.net/fr_FR/sdk.js";
+  s.onerror = function () { msg("ko", "Impossible de charger Meta. Un bloqueur de publicité peut en être la cause : désactivez-le pour cette page."); };
+  document.head.appendChild(s);
+
+  form.addEventListener("input", majBouton);
+  form.addEventListener("change", majBouton);
+
+  // 3. Retour de la fenêtre Meta : identifiants (WABA, numéro, portefeuille)
+  window.addEventListener("message", function (ev) {
+    var h;
+    try { h = new URL(ev.origin).hostname; } catch (e) { return; }
+    if (h !== "facebook.com" && !/\.facebook\.com$/.test(h)) return;
+    var d;
+    try { d = typeof ev.data === "string" ? JSON.parse(ev.data) : ev.data; } catch (e) { return; }
+    if (!d || d.type !== "WA_EMBEDDED_SIGNUP") return;
+    if (/^FINISH/.test(d.event) && d.data) {
+      session = d.data; tenter();
+    } else if (d.event === "CANCEL" || d.event === "ERROR") {
+      etape("meta", "erreur");
+      var det = d.data || {};
+      msg("ko", det.error_message
+        ? "Meta signale une erreur : " + det.error_message + ". Vous pouvez recommencer."
+        : "Connexion interrompue" + (det.current_step ? " (étape : " + det.current_step + ")" : "") +
+          ". Rien n'a été enregistré : vous pouvez recommencer.");
+      envoye = false; majBouton();
+    }
+  });
+
+  // 4. Le code ne vit que 30 s : envoi dès qu'on a le code ET les identifiants
+  function tenter() {
+    if (!code || !session || envoye) return;
+    if (!session.waba_id || !session.phone_number_id) {
+      etape("meta", "erreur");
+      msg("ko", "Aucun numéro n'a été choisi dans la fenêtre Meta. Recommencez en sélectionnant un numéro.");
+      return;
+    }
+    envoye = true; majBouton();
+    etape("meta", "fait"); etape("envoi", "encours");
+    msg("info", "Enregistrement en cours, ne fermez pas cette page…");
+    var f = new FormData(form);
+    fetch(API + "/finaliser", {
+      method: "POST", credentials: "omit", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        state: state, code: code, waba_id: String(session.waba_id), phone_number_id: String(session.phone_number_id),
+        business_id: String(session.business_id || ""), nom: f.get("nom"), prenom: f.get("prenom"),
+        email: f.get("email"), numero_alerte: f.get("numero_alerte"), langue: f.get("langue"),
+        consentement: !!f.get("consentement")
+      })
+    }).then(function (r) { return r.json().then(function (d) { return [r.ok, d]; }); })
+      .then(function (x) {
+        var ok = x[0], d = x[1];
+        if (!ok) throw new Error(d.erreur || "erreur inconnue");
+        etape("envoi", "fait");
+        etape("fin", d.enregistrement && d.abonnement ? "fait" : "erreur");
+        msg("ok", "C'est fait : le numéro " + (d.numero || "") + " est relié à Atlas. " +
+          (d.enregistrement && d.abonnement ? "" : "Une dernière étape technique sera terminée par notre équipe. ") +
+          "Nous vous contactons pour configurer vos logements. Pensez à ajouter un moyen de paiement dans WhatsApp Manager.");
+      })
+      .catch(function (e) {
+        etape("envoi", "erreur");
+        msg("ko", "L'inscription n'a pas abouti : " + e.message + ". Rechargez la page pour recommencer, ou écrivez à contact@agencewebbot.com.");
+      });
+  }
+
+  // 5. Ouverture de la fenêtre Meta
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    if (bouton.disabled) return;
+    code = null; session = null; envoye = false;
+    etape("meta", "encours"); etape("envoi", ""); etape("fin", "");
+    msg("info", "Une fenêtre Meta s'ouvre : suivez les étapes jusqu'au bout.");
+    FB.login(function (rep) {
+      if (rep && rep.authResponse && rep.authResponse.code) { code = rep.authResponse.code; tenter(); }
+      else if (!session) { etape("meta", "erreur"); msg("ko", "Fenêtre Meta fermée avant la fin. Rien n'a été enregistré : vous pouvez recommencer."); }
+    }, {
+      config_id: CONFIG_ID, response_type: "code", override_default_response_type: true,
+      extras: {}                            // vide en v4 (choix des produits dans la configuration Meta)
+    });
+  });
+})();
+</script>
+</body>
+</html>
