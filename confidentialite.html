@@ -40,9 +40,10 @@ footer{text-align:center;color:var(--gris);font-size:.85rem;padding:10px 22px 46
 footer a{color:var(--gris)}
 @media(max-width:640px){article{padding:28px 20px 26px;border-radius:0;margin:18px 0}h1{font-size:1.4rem}h2{font-size:1.12rem}}
 </style>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://stats.agencewebbot.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com https://stats.agencewebbot.com; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3b169aac0d82481d9a4ce8c12b3287c2"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- Statistiques sans cookie (Umami) --><script defer src="https://stats.agencewebbot.com/script.js" data-website-id="95a7c395-5d3e-48cf-8e8d-331f17772ec8" data-domains="agencewebbot.com,www.agencewebbot.com"></script><script src="/suivi-stats.js" defer></script>
 </head>
 <body>
 <header>
@@ -76,7 +77,10 @@ commercial <strong>Agence WebBot</strong><br>
   <li><strong>Quand vous visitez ce site</strong> : nous mesurons la fréquentation avec
   <strong>Cloudflare Web Analytics</strong>, sans cookie et sans suivi individuel des
   visiteurs : seuls des chiffres globaux (pages vues, pays, type d'appareil) nous sont
-  visibles. <em>Pourquoi :</em> savoir quelles pages sont lues pour améliorer le site.</li>
+  visibles. Nous utilisons aussi <strong>Umami</strong>, installé sur notre propre serveur
+  dans l'Union européenne, lui aussi sans cookie : il compte les pages vues, la durée de
+  visite, le site d'origine et les clics sur nos boutons (WhatsApp, inscription), sans
+  identifier les visiteurs. <em>Pourquoi :</em> savoir quelles pages sont lues pour améliorer le site.</li>
 </ul>
 
 <h2>Sur quelle base légale</h2>
@@ -99,7 +103,8 @@ activité, sous votre responsabilité de gestionnaire du logement.</p>
 prestataires techniques strictement nécessaires :</p>
 <ul>
   <li>l'hébergeur du site et le service d'envoi de courriel ;</li>
-  <li><strong>Cloudflare</strong>, pour la mesure d'audience sans cookie ;</li>
+  <li><strong>Cloudflare</strong>, pour la mesure d'audience sans cookie (Umami, l'autre outil
+  de mesure, tourne sur notre propre serveur, hébergé dans l'Union européenne) ;</li>
   <li>la plateforme <strong>WhatsApp de Meta</strong>, pour l'acheminement des messages ;</li>
   <li><strong>Google (API Gemini)</strong>, qui rédige les réponses de l'assistant à partir
   des messages des voyageurs. Nous utilisons l'offre payante : Google n'utilise pas ces
