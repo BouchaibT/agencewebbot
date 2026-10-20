@@ -59,6 +59,9 @@
   .hero{position:relative; height:820px; overflow:hidden; background:var(--noir)}
   .diapos{position:absolute; inset:0}
   .diapos img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+  /* Vidéos de fond (Kie.ai, 20/10/2026) : l'image fixe reste dessous, la vidéo apparaît en fondu quand elle joue */
+  video.fond-video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 1.4s ease; pointer-events:none}
+  video.fond-video.joue{opacity:1}
   .hero .voile{position:absolute; inset:0; background:linear-gradient(90deg,rgba(18,14,8,.56) 0%,rgba(18,14,8,.22) 46%,rgba(18,14,8,0) 100%),linear-gradient(180deg,rgba(18,14,8,.20) 0%,rgba(18,14,8,0) 28%,rgba(18,14,8,.42) 100%)}
   .hero .dedans{position:absolute; inset:0; display:flex; flex-direction:column}
   nav{display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:40px; padding:30px 0}
@@ -116,6 +119,7 @@
 
   .banniere{position:relative; height:480px; overflow:hidden; background:var(--noir)}
   .banniere img{width:100%; height:100%; object-fit:cover; display:block}
+  .banniere img,.banniere video{position:absolute; inset:0}
   .banniere .voile{position:absolute; inset:0; background:linear-gradient(90deg,rgba(20,16,10,.90) 0%,rgba(20,16,10,.60) 52%,rgba(20,16,10,.18) 100%)}
   .banniere .texte{position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; max-width:1240px; margin:0 auto; padding:0 40px}
   .banniere h2{color:#fff; font-size:46px; max-width:780px; line-height:1.14}
@@ -191,7 +195,7 @@
     .tete p{font-size:16.5px}
     .deux,.etapes,.grille{grid-template-columns:1fr; gap:22px}
     .banniere{height:auto; padding:56px 0}
-    .banniere .texte{position:static; padding:0 20px}
+    .banniere .texte{position:relative; z-index:1; padding:0 20px}
     .banniere h2{font-size:30px}
     .banniere p{font-size:16.5px}
     .contact .dedans{flex-direction:column; align-items:flex-start; gap:30px; padding:56px 20px}
@@ -367,7 +371,11 @@
 
   <section class="hero">
     <div class="diapos">
-      <img src="images/riad-nuit-allee-lanternes.jpg" srcset="images/riad-nuit-allee-lanternes-800.jpg 800w, images/riad-nuit-allee-lanternes.jpg 1600w" sizes="100vw" width="1600" height="2400" fetchpriority="high" alt="Cour de riad la nuit, allée éclairée par des lanternes">
+      <picture>
+        <source media="(max-width:820px)" srcset="videos/hero-mobile.jpg">
+        <img src="videos/hero-1600.jpg" width="1600" height="900" fetchpriority="high" alt="Cour de riad la nuit, fontaine en zellige et lanternes allumées">
+      </picture>
+      <video class="fond-video" muted loop playsinline preload="none" aria-hidden="true" data-video="videos/hero-1600" data-video-mobile="videos/hero-mobile"></video>
     </div>
     <div class="voile"></div>
     <div class="dedans">
@@ -493,7 +501,8 @@
   </div>
 
   <section class="banniere">
-    <img loading="lazy" decoding="async" src="images/medersa-ben-youssef.jpg" width="2000" height="800" alt="Cour de la médersa Ben Youssef à Marrakech, stuc sculpté et zellige">
+    <img loading="lazy" decoding="async" src="videos/bandeau.jpg" width="1600" height="900" alt="Galerie à arcades d'un riad, colonnes en zellige et soleil de fin d'après-midi">
+    <video class="fond-video" muted loop playsinline preload="none" aria-hidden="true" data-video="videos/bandeau"></video>
     <div class="voile"></div>
     <div class="texte revele">
       <h2>Vous n'embauchez personne.<br>Vous ajoutez un assistant.</h2>
@@ -716,7 +725,8 @@
 
   <section class="contact" id="contact">
     <div class="fond">
-      <img loading="lazy" decoding="async" src="images/lanterne-niche-chaux.jpg" width="1600" height="800" alt="Lanterne marocaine posée dans une niche aux murs de chaux">
+      <img loading="lazy" decoding="async" src="videos/contact.jpg" width="1280" height="720" alt="Lanterne marocaine allumée dans une niche en tadelakt">
+      <video class="fond-video" muted loop playsinline preload="none" aria-hidden="true" data-video="videos/contact"></video>
       <div class="voile"></div>
     </div>
     <div class="dedans revele">
@@ -740,7 +750,7 @@
         <div class="pied-droite">
         </div>
       </div>
-      <div class="mention" style="margin-top:24px; font-size:11px; color:#8A8072">Image d'aperçu : arche de Legzira (Maroc), <a href="https://commons.wikimedia.org/wiki/File:Legzira_beach_near_Sidi_Ifni.jpg" target="_blank" rel="noopener" style="text-decoration:underline">Walter Rodriguez</a>, <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener" style="text-decoration:underline">CC BY 2.0</a>. Photos de fond et des guides : Unsplash. Images recadrées.</div>
+      <div class="mention" style="margin-top:24px; font-size:11px; color:#8A8072">Image d'aperçu : arche de Legzira (Maroc), <a href="https://commons.wikimedia.org/wiki/File:Legzira_beach_near_Sidi_Ifni.jpg" target="_blank" rel="noopener" style="text-decoration:underline">Walter Rodriguez</a>, <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener" style="text-decoration:underline">CC BY 2.0</a>. Vidéos et images de fond de cette page : générées par intelligence artificielle. Photos des guides : Unsplash. Images recadrées.</div>
       <p class="pied-legal"><a href="/mentions-legales.html">Mentions légales</a> · <a href="/confidentialite.html">Confidentialité</a> · <a href="/suppression-donnees.html">Suppression des données</a> · <a href="/cgu.html">CGU</a></p>
     </div>
 </footer>
@@ -893,6 +903,35 @@
   } else {
     voir(true);
   }
+})();
+</script>
+<script>
+/* Vidéos de fond : chargées seulement à l'approche de l'écran, mises en pause hors écran.
+   Rien en mode « réduire les animations » ou « économie de données » : l'image fixe reste. */
+(function(){
+  var videos = document.querySelectorAll('video[data-video]');
+  var calme = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var econome = navigator.connection && navigator.connection.saveData;
+  if (!videos.length || calme || econome || !('IntersectionObserver' in window)) return;
+  var mobile = window.matchMedia('(max-width:820px)').matches;
+  function charger(v){
+    var base = (mobile && v.dataset.videoMobile) || v.dataset.video;
+    [['webm','video/webm'],['mp4','video/mp4']].forEach(function(f){
+      var s = document.createElement('source'); s.src = base + '.' + f[0]; s.type = f[1]; v.appendChild(s);
+    });
+    v.addEventListener('playing', function(){ v.classList.add('joue'); }, {once:true});
+    v.load();
+  }
+  var obs = new IntersectionObserver(function(entrees){
+    entrees.forEach(function(e){
+      var v = e.target;
+      if (e.isIntersecting) {
+        if (!v.dataset.charge) { v.dataset.charge = '1'; charger(v); }
+        var p = v.play(); if (p && p.catch) p.catch(function(){});
+      } else if (v.dataset.charge) { v.pause(); }
+    });
+  }, { rootMargin: '200px 0px' });
+  videos.forEach(function(v){ obs.observe(v); });
 })();
 </script>
 <script src="/suivi-source.js" defer></script>
