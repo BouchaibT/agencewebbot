@@ -1,0 +1,48 @@
+# Après chaque fusion sur main qui touche une page, remet les <lastmod> du sitemap à la date réelle
+# de dernière modification. L'envoi IndexNow quotidien (PC de Bouchaib) signale alors les pages changées.
+name: Dates du sitemap
+
+on:
+  push:
+    branches: [main]
+    paths: ["**.html", "sitemap.xml", ".github/scripts/maj_lastmod.py"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: sitemap-lastmod
+  cancel-in-progress: false
+
+jobs:
+  lastmod:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Mettre à jour les dates
+        run: python3 .github/scripts/maj_lastmod.py
+
+      - name: Enregistrer sur main si besoin
+        id: commit
+        run: |
+          if git diff --quiet sitemap.xml; then
+            echo "change=non" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Sitemap : dates de modification à jour" -- sitemap.xml
+          git push origin HEAD:main
+          echo "change=oui" >> "$GITHUB_OUTPUT"
+
+      # Un envoi fait avec le jeton de l'action peut ne pas relancer GitHub Pages : on le demande explicitement.
+      - name: Republier le site
+        if: steps.commit.outputs.change == 'oui'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" --silent || echo "republication non demandée (sera faite à la prochaine fusion)"
