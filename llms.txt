@@ -1,0 +1,36 @@
+# Agence WebBot (Atlas)
+
+> Agence WebBot propose Atlas, un assistant WhatsApp pour propriétaires et conciergeries de location courte durée au Maroc (Marrakech, Casablanca, Agadir, Tanger, Essaouira…). Atlas répond aux voyageurs 24 h sur 24, en quelques secondes, à l'écrit et en vocal dans 8 langues, et passe la main au propriétaire dès qu'une situation sort du cadre.
+> Agence WebBot offers Atlas, a WhatsApp assistant for short-term rental owners and property managers in Morocco. Atlas answers guests 24/7 within seconds, in writing and by voice in 8 languages, and hands over to the owner when something needs a human.
+
+## Ce que fait Atlas
+- Répond sur WhatsApp aux questions des voyageurs : arrivée, code d'accès, wifi, panne de chauffe-eau, adresses utiles, jour et nuit, week-ends et jours fériés compris.
+- 8 langues à l'écrit et en vocal : français, arabe, anglais, espagnol, allemand, néerlandais, italien, chinois.
+- Le propriétaire garde la main : il reprend la conversation d'un message, avec tout l'échange sous les yeux.
+- Mise en service en trois étapes : analyse des questions réelles des voyageurs, rédaction des réponses propres au logement, test par le propriétaire avant toute décision.
+
+## Tarifs (Maroc, en dirhams)
+- 250 DH par logement et par mois (prix normal). Un riad de 5 chambres louées séparément = 5 logements.
+- Offre partenaire : 190 DH par logement et par mois, garantis 12 mois, mise en service offerte — 10 places jusqu'au 31 décembre 2026.
+
+## Essayer
+- Démo WhatsApp : +33 7 46 55 44 43 (https://wa.me/33746554443)
+- Essai : https://agencewebbot.com/essai.html
+- Contact : contact@agencewebbot.com
+
+## Guides pratiques (location courte durée au Maroc)
+- [Licence Airbnb au Maroc : l'autorisation d'exploitation](https://agencewebbot.com/guide-licence-location-courte-duree-maroc.html)
+- [رخصة الكراء اليومي بالمغرب](https://agencewebbot.com/rokhsat-kira-yawmi-maghrib.html)
+- [Fiche de police : déclaration en ligne](https://agencewebbot.com/teledeclaration-location-courte-duree-maroc.html)
+- [Taxe de séjour au Maroc](https://agencewebbot.com/taxe-sejour-location-courte-duree-maroc.html)
+- [Assurance d'une location courte durée au Maroc](https://agencewebbot.com/assurance-location-courte-duree-maroc.html)
+- [Serrure intelligente et boîte à clés : prix au Maroc](https://agencewebbot.com/serrure-intelligente-maroc-prix.html)
+- [Ménage entre deux séjours](https://agencewebbot.com/menage-location-courte-duree.html)
+- [Rentabilité Airbnb au Maroc par ville](https://agencewebbot.com/rentabilite-airbnb-maroc.html)
+- [Conciergerie Airbnb au Maroc : services et tarifs](https://agencewebbot.com/conciergerie-airbnb-maroc.html)
+- [Conciergerie à Marrakech, Casablanca, Agadir : prix](https://agencewebbot.com/conciergerie-airbnb-marrakech-casablanca-agadir.html)
+- [Propriétaire : confier son bien à une conciergerie](https://agencewebbot.com/conciergerie-airbnb-proprietaire-maroc.html)
+- [Contrat de conciergerie : les clauses à vérifier](https://agencewebbot.com/contrat-conciergerie-airbnb.html)
+
+## En France et en Europe
+Pour un logement en France ou en Europe (tarifs en euros), le même type de service est proposé par Lingokey : https://lingokey.fr/
