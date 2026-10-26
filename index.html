@@ -1017,6 +1017,8 @@
   var mobile = window.matchMedia('(max-width:820px)').matches;
   function charger(v){
     var base = (mobile && v.dataset.videoMobile) || v.dataset.video;
+    // Vignette = l'image fixe déjà affichée (déjà en cache) : Google exige une vignette pour indexer la vidéo (26/10/2026).
+    v.poster = base + '.jpg';
     [['webm','video/webm'],['mp4','video/mp4']].forEach(function(f){
       var s = document.createElement('source'); s.src = base + '.' + f[0]; s.type = f[1]; v.appendChild(s);
     });
