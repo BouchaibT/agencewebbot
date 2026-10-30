@@ -18,6 +18,11 @@ def fichier_de(loc):
 
 
 def derniere_modif(fichier):
+    # Article : la date déclarée (dateModified) prime, pour qu'un changement de bouton ou de pied de page
+    # ne fasse pas passer la page pour mise à jour.
+    m = re.search(r'"dateModified":\s*"([^"]+)"', fichier.read_text(encoding="utf-8"))
+    if m:
+        return m.group(1)
     # --first-parent : date et heure (ISO 8601) de l'arrivée de la modification sur main (fusion de la PR) ;
     # l'heure permet de signaler deux modifications de la même page faites le même jour.
     sortie = subprocess.run(["git", "log", "-1", "--first-parent", "--format=%cI", "--", str(fichier)],
