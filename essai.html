@@ -7,7 +7,7 @@
 <title>Demander une démo de l'assistant WhatsApp — Agence WebBot</title>
 <meta name="description" content="Demandez une démonstration de l'assistant qui répond à vos voyageurs sur WhatsApp, jour et nuit. Gratuit, sans engagement.">
 <meta name="robots" content="noindex, follow">
-<link rel="canonical" href="https://agencewebbot.com/">
+<link rel="canonical" href="https://agencewebbot.com/essai.html">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-star-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon-star-180.png">
 <meta property="og:type" content="website">
@@ -130,7 +130,8 @@
       <textarea id="q3" name="q3" maxlength="1500"></textarea>
       <p class="note">Retirez les noms, numéros et codes d'accès de vos voyageurs.</p>
       <div class="pot" aria-hidden="true"><label for="site">Ne pas remplir</label><input type="text" id="site" name="site" tabindex="-1" autocomplete="off"></div>
-      <label class="case"><input type="checkbox" name="accord" value="oui" required><span>J'accepte que ces questions servent à préparer ma démonstration. Nous vous écrirons au sujet d'Atlas ; un clic suffit pour arrêter. Voir la <a href="/confidentialite.html">politique de confidentialité</a>.</span></label>
+      <label class="case"><input type="checkbox" name="accord" value="oui" required><span>J'accepte que ces questions servent à préparer ma démonstration, envoyée par e-mail sous 2 jours ouvrés. Voir la <a href="/confidentialite.html">politique de confidentialité</a>.</span></label>
+      <label class="case"><input type="checkbox" name="suivi" value="oui"><span>Facultatif : vous pouvez aussi m'écrire au sujet d'Atlas (un clic suffira pour arrêter).</span></label>
       <button type="submit" class="bouton">Recevoir mes réponses</button>
     </form>
 
@@ -141,6 +142,11 @@
 <div class="collant">
   <a class="bouton" href="#formulaire">Demander une démo</a>
 </div>
+<script>
+(function(){var f=document.getElementById('formulaire'),c=document.querySelector('.collant');
+if(!f||!c||!('IntersectionObserver' in window))return;
+new IntersectionObserver(function(e){c.style.display=e[0].isIntersecting?'none':'';},{threshold:0.05}).observe(f);})();
+</script>
 <script src="/suivi-source.js" defer></script>
 </body>
 </html>

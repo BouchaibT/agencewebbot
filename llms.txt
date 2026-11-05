@@ -1,6 +1,6 @@
 # Agence WebBot (Atlas)
 
-> Agence WebBot propose Atlas, un assistant WhatsApp pour propriétaires et conciergeries de location courte durée au Maroc (Marrakech, Casablanca, Agadir, Tanger, Essaouira…). Atlas répond aux voyageurs 24 h sur 24, en quelques secondes, à l'écrit et en vocal dans 8 langues, et passe la main au propriétaire dès qu'une situation sort du cadre.
+> Agence WebBot propose Atlas, un assistant WhatsApp pour propriétaires et conciergeries de location courte durée au Maroc (Marrakech, Casablanca, Agadir, Tanger, Essaouira…). Atlas répond aux voyageurs 24 h sur 24, à l'écrit et en vocal dans 8 langues, et passe la main au propriétaire dès qu'une situation sort du cadre.
 > Agence WebBot offers Atlas, a WhatsApp assistant for short-term rental owners and property managers in Morocco. Atlas answers guests 24/7 within seconds, in writing and by voice in 8 languages, and hands over to the owner when something needs a human.
 
 ## Ce que fait Atlas
@@ -41,4 +41,3 @@
 - [Propriétaire : confier son bien à une conciergerie](https://agencewebbot.com/conciergerie-airbnb-proprietaire-maroc.html)
 - [Contrat de conciergerie : les clauses à vérifier](https://agencewebbot.com/contrat-conciergerie-airbnb.html)
 
-## En France et en Europe

@@ -4,7 +4,7 @@
    et la profondeur de lecture des guides (50 % / 90 %). Chaque événement porte le type de page
    (guide ou page commerciale) et la provenance (?src=… ou utm_source, gardée pour la visite). */
 (function () {
-  var GUIDES = /^(assurance|conciergerie|contrat|guide|menage|rentabilite|rokhsat|serrure|taxe|teledeclaration)/;
+  var GUIDES = /^(airbnb-ou-booking|assurance|automatiser|conciergerie|contrat|guide|impots|menage|passeport|regle|rentabilite|responsabilite|rokhsat|serrure|societe|taxe|teledeclaration)/;
   var page = location.pathname.replace(/^\/|\.html$/g, '') || 'accueil';
   if (page === 'index') page = 'accueil';
   var type = GUIDES.test(page) ? 'guide' : (/^(cgu|confidentialite|mentions|suppression)/.test(page) ? 'legal' : 'commercial');
