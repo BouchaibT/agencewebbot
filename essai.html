@@ -108,8 +108,8 @@
 
 
     <form class="form" id="formulaire" method="post" action="https://n8n.agencewebbot.com/webhook/awb-demande-demo">
-      <h2>Montrez-nous vos messages, on vous montre la réponse</h2>
-      <p class="chapo">Copiez trois questions qu'un voyageur vous a posées cette semaine. Nous vous renvoyons, par e-mail, la conversation telle que l'assistant l'aurait menée. Gratuit, sans engagement.</p>
+      <h2>Prêt pour vos prochaines arrivées ?</h2>
+      <p class="chapo">Dites-nous combien de logements vous gérez : nous vous recontactons sous 2 jours ouvrés.</p>
       <label for="email">Votre e-mail</label>
       <input type="email" id="email" name="email" required maxlength="200" autocomplete="email" placeholder="vous@exemple.ma">
       <label for="logements">Combien de logements gérez-vous ?</label>
@@ -122,17 +122,12 @@
       </select>
       <label for="ville">Ville (facultatif)</label>
       <input type="text" id="ville" name="ville" maxlength="80" autocomplete="address-level2">
-      <label for="q1">Question 1</label>
-      <textarea id="q1" name="q1" required maxlength="1500"></textarea>
-      <label for="q2">Question 2</label>
-      <textarea id="q2" name="q2" maxlength="1500"></textarea>
-      <label for="q3">Question 3</label>
-      <textarea id="q3" name="q3" maxlength="1500"></textarea>
-      <p class="note">Retirez les noms, numéros et codes d'accès de vos voyageurs.</p>
+      <label for="message">Votre message (facultatif)</label>
+      <textarea id="message" name="message" maxlength="1500"></textarea>
       <div class="pot" aria-hidden="true"><label for="site">Ne pas remplir</label><input type="text" id="site" name="site" tabindex="-1" autocomplete="off"></div>
-      <label class="case"><input type="checkbox" name="accord" value="oui" required><span>J'accepte que ces questions servent à préparer ma démonstration, envoyée par e-mail sous 2 jours ouvrés. Voir la <a href="/confidentialite.html">politique de confidentialité</a>.</span></label>
+      <label class="case"><input type="checkbox" name="accord" value="oui" required><span>J'accepte que ces informations servent à me recontacter au sujet de ma demande. Voir la <a href="/confidentialite.html">politique de confidentialité</a>.</span></label>
       <label class="case"><input type="checkbox" name="suivi" value="oui"><span>Facultatif : vous pouvez aussi m'écrire au sujet d'Atlas (un clic suffira pour arrêter).</span></label>
-      <button type="submit" class="bouton">Recevoir mes réponses</button>
+      <button type="submit" class="bouton">Envoyer ma demande</button>
     </form>
 
     <p class="bas">Vous voulez tout lire avant ? <a href="/">Voir le site complet</a></p>
