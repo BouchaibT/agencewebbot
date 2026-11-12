@@ -16,8 +16,7 @@
 <link rel="icon" href="/favicon-star.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon-star-180.png">
 <link rel="manifest" href="/site.webmanifest">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="/polices/poppins-cairo.css" rel="stylesheet">
   <style>
 :root{--bleu:#0a5c8a;--bleu-d:#074463;--bleu-pale:#eaf3f8;--texte:#1a2734;--gris:#6b7a89;--bord:#dce5ec}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -40,7 +39,7 @@ footer{text-align:center;color:var(--gris);font-size:.85rem;padding:10px 22px 46
 footer a{color:var(--gris)}
 @media(max-width:640px){article{padding:28px 20px 26px;border-radius:0;margin:18px 0}h1{font-size:1.4rem}h2{font-size:1.12rem}}
 </style>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://stats.agencewebbot.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com https://stats.agencewebbot.com; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://stats.agencewebbot.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com https://stats.agencewebbot.com; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3b169aac0d82481d9a4ce8c12b3287c2"}'></script><!-- End Cloudflare Web Analytics -->
 <!-- Statistiques sans cookie (Umami) --><script defer src="https://stats.agencewebbot.com/script.js" data-website-id="95a7c395-5d3e-48cf-8e8d-331f17772ec8" data-domains="agencewebbot.com,www.agencewebbot.com"></script><script src="/suivi-stats.js" defer></script>
@@ -120,7 +119,13 @@ prestataires techniques strictement nécessaires :</p>
   afin de détecter les abus.</li>
   <li><strong>Microsoft</strong>, qui transforme une réponse écrite en message vocal quand
   l'assistant répond à l'oral.</li>
-  <!-- À COMPLÉTER PAR BOUCHAIB : entité Google contractante pour l'UE (non nommée sur la page des conditions Gemini API) -->
+  <li><strong>Telegram</strong>, messagerie établie hors de l'Union européenne, qui nous sert
+d'alerte interne : quand vous remplissez notre formulaire de contact, vos coordonnées et votre
+message nous y sont signalés pour que nous vous répondions vite ; et, si le gestionnaire du
+logement l'a accepté, nous y recevons une copie des alertes que l'assistant lui transmet
+(prénom du voyageur s'il est connu, logement, message), ou l'alerte elle-même quand WhatsApp
+n'a pas pu la lui livrer.</li>
+<!-- À COMPLÉTER PAR BOUCHAIB : entité Google contractante pour l'UE (non nommée sur la page des conditions Gemini API) -->
 </ul>
 <p>Certains de ces prestataires sont établis hors de l'Union européenne ; les transferts sont
 encadrés par les clauses contractuelles types de la Commission européenne ou par le cadre
@@ -133,6 +138,15 @@ opposer à leur traitement. Une seule adresse pour tout :
 Nous répondons sous un mois. Pour effacer vos données, la marche à suivre est détaillée
 sur la page <a href="/suppression-donnees.html">supprimer vos données</a>. Si la réponse ne vous convient pas, vous pouvez saisir la
 CNIL (<a href="https://www.cnil.fr" rel="noopener">cnil.fr</a>).</p>
+<h2>Si vous êtes au Maroc</h2>
+<p>Au Maroc, vos données personnelles sont aussi protégées par la loi n° 09-08 relative à
+la protection des personnes physiques à l'égard du traitement des données à caractère
+personnel. Elle vous donne notamment le droit d'être informé, d'accéder à vos données, de les
+faire rectifier et de vous opposer à leur traitement. Vous exercez ces droits à la même
+adresse : <a href="mailto:contact@agencewebbot.com">contact@agencewebbot.com</a>. Si la
+réponse ne vous convient pas, vous pouvez aussi saisir la Commission nationale de contrôle
+de la protection des données à caractère personnel (CNDP,
+<a href="https://www.cndp.ma" rel="noopener">cndp.ma</a>).</p>
 
 <h2>Vous parlez à un assistant virtuel</h2>
 <div class="encadre">
@@ -152,7 +166,7 @@ jamais restaurée.</p>
 
 <h2>Modifications</h2>
 <p>Si cette page change, la date ci-dessous change aussi. Dernière mise à jour :
-<strong>5 novembre 2026</strong>.</p>
+<strong>12 novembre 2026</strong>.</p>
 
   </article>
 </div>
